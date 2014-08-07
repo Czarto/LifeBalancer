@@ -17,9 +17,10 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 
+
 @property(nonatomic,assign)BOOL isGoalEditing;
 @property (nonatomic,assign)CGPoint lastGoalScrollPosition;
 
-- (NSString *)applicationDocumentsDirectory;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

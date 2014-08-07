@@ -37,6 +37,23 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(goToHome)];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"SomethingChanged" object:nil];
+}
+
+-(void)refreshData
+{
+	[self loadroles];
+	if (!self.editing) {
+        
+        if (roleCount<1) {
+			[self.tableView setEditing:YES animated:YES];
+			[self setEditing:YES];
+        }
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     
@@ -53,21 +70,20 @@
     if (!self.editing) {
         
         if (roleCount<1) {
-        [self.tableView setEditing:YES animated:YES];
-        [self setEditing:YES];
+			[self.tableView setEditing:YES animated:YES];
+			[self setEditing:YES];
         }
     }
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:@"SomethingChanged" object:nil];
     
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
     [super viewDidAppear:animated];
    // [self.tableView setEditing: YES animated: YES];
 }
-
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -34,8 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[[[DataAdapter alloc]init]initialSetup];
+	[[[DataAdapter alloc]init] initialSetup];
     self.tabBarController.tabBar.hidden = YES;
+	self.view.tag = 101;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -191,9 +192,6 @@
             
             
         }
-        
-        
-        
         
     }
 }

@@ -16,6 +16,7 @@
     EKEventStore *eventDB;
 }
 - (void)initialSetup;
+- (void)initialSetup2;
 -(NSArray *)missions;
 -(Role *)getemptyrole;
 -(NSArray *)roles;

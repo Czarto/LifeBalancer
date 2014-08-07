@@ -12,6 +12,8 @@
 #import "Role.h"
 #import "Goal.h"
 #import "Task.h"
+#import "Faulter.h"
+#import "CoreDataImporter.h"
 #import <EventKit/EventKit.h>
 
 @interface DataAdapter (){
@@ -34,6 +36,7 @@
 #pragma mark - Setup
 
 - (void)initialSetup {
+	/*
     NSError *error = nil;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mission" inManagedObjectContext:managedObjectContext];
@@ -64,6 +67,189 @@
     if (![managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
+	/*/
+}
+
+- (NSDictionary*)selectedUniqueAttributes {
+
+    
+	
+//    if (debug==1) {NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));}
+    
+    NSMutableArray *entities   = [NSMutableArray new];
+    NSMutableArray *attributes = [NSMutableArray new];
+    
+    // Select an attribute in each entity for uniqueness
+    [entities addObject:@"Goal"];[attributes addObject:@"name"];
+    [entities addObject:@"Mission"];[attributes addObject:@"statement"];
+    [entities addObject:@"Role"];[attributes addObject:@"name"];
+    [entities addObject:@"Task"];[attributes addObject:@"calendarId"];
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:attributes
+                                                           forKeys:entities];
+    return dictionary;
+}
+
+
+- (void)initialSetup2 {
+	
+	NSError *error = nil;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mission" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (!(fetchedObjects == nil || fetchedObjects.count == 0)) {
+        return;
+    }
+
+	
+	CoreDataImporter *importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
+	
+	
+	NSDictionary *attributeDict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:@"To find happiness, fulfillment, and value in living I will strive to: make a positive difference in the lives of others; continually grow and improve; keep an open mind; and to appologize sincerely when necessary."] forKeys:[NSArray arrayWithObject:@"statement"]];
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *missionItem = [importer insertBasicObjectInTargetEntity:@"Mission"
+													   targetEntityAttribute:@"statement"
+														  sourceXMLAttribute:@"statement"
+															   attributeDict:attributeDict
+																	 context:managedObjectContext];
+	
+	
+	NSDictionary *role1 = 	[NSDictionary dictionaryWithObject:@"Physical" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem1 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role1
+																   context:managedObjectContext];
+	
+	
+	NSDictionary *role2 = [NSDictionary dictionaryWithObject:@"Mental" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem2 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role2
+																   context:managedObjectContext];
+	
+	NSDictionary *role3 = 	[NSDictionary dictionaryWithObject:@"Spiritual" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem3 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role3
+																   context:managedObjectContext];
+	
+	
+	NSDictionary *role4 = [NSDictionary dictionaryWithObject:@"Social" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem4 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role4
+																   context:managedObjectContext];
+	
+	
+	NSDictionary *role5 = [NSDictionary dictionaryWithObject:@"Individual" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem5 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role5
+																   context:managedObjectContext];
+	
+	
+	NSDictionary *role6 = [NSDictionary dictionaryWithObject:@"Family Member" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem6 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role6
+																   context:managedObjectContext];
+	
+	
+	NSDictionary *role7 = [NSDictionary dictionaryWithObject:@"Friend" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem7 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role7
+																   context:managedObjectContext];
+	
+	
+	NSDictionary *role8 = [NSDictionary dictionaryWithObject:@"Employee" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem8 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role8
+																   context:managedObjectContext];
+	
+	NSDictionary *role9 = [NSDictionary dictionaryWithObject:@"Homeowner" forKey:@"name"];
+	
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+	NSManagedObject *roleItem9 = [importer insertBasicObjectInTargetEntity:@"Role"
+													 targetEntityAttribute:@"name"
+														sourceXMLAttribute:@"name"
+															 attributeDict:role9
+																   context:managedObjectContext];
+	
+	// STEP 6: Save new objects to the persistent store.
+	[CoreDataImporter saveContext:managedObjectContext];
+	
+	[Faulter faultObjectWithID:missionItem.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem1.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem2.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem3.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem4.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem5.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem6.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem7.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem8.objectID inContext:managedObjectContext];
+	[Faulter faultObjectWithID:roleItem9.objectID inContext:managedObjectContext];
+	
+	/*
+	NSLog(@"INitial setup 2 is called");
+	 NSError *error = nil;
+	 NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	 NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mission" inManagedObjectContext:managedObjectContext];
+	 [fetchRequest setEntity:entity];
+	 
+	 NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	 if (!(fetchedObjects == nil || fetchedObjects.count == 0)) {
+		 return;
+	 }
+	 
+	 
+	 Mission *mission = [NSEntityDescription
+	 insertNewObjectForEntityForName:@"Mission"
+	 inManagedObjectContext:managedObjectContext];
+	 
+	 mission.statement = @"To find happiness, fulfillment, and value in living I will strive to: make a positive difference in the lives of others; continually grow and improve; keep an open mind; and to appologize sincerely when necessary.";
+	 
+	 NSArray *rolenames = [NSArray arrayWithObjects:@"Physical",@"Mental",@"Spiritual",@"Social",@"Individual",@"Family Member",@"Friend",@"Employee", @"Homeowner", nil];
+	 // NSArray *rolenames = [NSArray arrayWithObjects:@"Individual",@"Family Member",@"Friend",@"Employee", @"Homeowner", nil];
+	 // NSArray *rolenames = [NSArray arrayWithObjects:nil];
+	 
+	 for (NSString *name in rolenames) {
+	 Role *role = [NSEntityDescription insertNewObjectForEntityForName:@"Role" inManagedObjectContext:managedObjectContext];
+	 role.name = name;
+	 role.custom = [NSNumber numberWithBool:NO];
+	 }
+	 
+	 if (![managedObjectContext save:&error]) {
+		 NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+	 }
+	 /*/
 }
 
 #pragma mark - Mission

@@ -24,6 +24,10 @@
 		6E55749C1954FCB80012E1BB /* splash-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749B1954FCB80012E1BB /* splash-640x1136.png */; };
 		6E55749E1954FCEC0012E1BB /* splash-640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749D1954FCEB0012E1BB /* splash-640x960.png */; };
 		6E5574A01954FEA60012E1BB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749F1954FEA60012E1BB /* Default-568h@2x.png */; };
+		8205AD091992B27F00981C7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8205AD081992B27F00981C7E /* MBProgressHUD.m */; };
+		82420891198EC90C00943C32 /* CoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82420890198EC90C00943C32 /* CoreDataImporter.m */; };
+		82756A06198EB6640088C272 /* Deduplicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 82756A04198EB6640088C272 /* Deduplicator.m */; };
+		82756A09198EB75E0088C272 /* Faulter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82756A08198EB75E0088C272 /* Faulter.m */; };
 		A9007E5516FC5D9B00B20701 /* RoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9007E5416FC5D9B00B20701 /* RoleViewController.m */; };
 		A90E68B7189FEE6A00404D29 /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = A90E68B6189FEE6A00404D29 /* 120.png */; };
 		A91F9DDA16FC2D2A005160AB /* lifebalancer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A91F9DD816FC2D2A005160AB /* lifebalancer.xcdatamodeld */; };
@@ -83,6 +87,15 @@
 		6E55749B1954FCB80012E1BB /* splash-640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-640x1136.png"; sourceTree = "<group>"; };
 		6E55749D1954FCEB0012E1BB /* splash-640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-640x960.png"; sourceTree = "<group>"; };
 		6E55749F1954FEA60012E1BB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8205AD071992B27F00981C7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Loader/MBProgressHUD.h; sourceTree = "<group>"; };
+		8205AD081992B27F00981C7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Loader/MBProgressHUD.m; sourceTree = "<group>"; };
+		8242088F198EC90C00943C32 /* CoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataImporter.h; sourceTree = "<group>"; };
+		82420890198EC90C00943C32 /* CoreDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataImporter.m; sourceTree = "<group>"; };
+		82756A04198EB6640088C272 /* Deduplicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deduplicator.m; sourceTree = "<group>"; };
+		82756A05198EB6640088C272 /* Deduplicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deduplicator.h; sourceTree = "<group>"; };
+		82756A07198EB75E0088C272 /* Faulter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faulter.h; sourceTree = "<group>"; };
+		82756A08198EB75E0088C272 /* Faulter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faulter.m; sourceTree = "<group>"; };
+		828F07C9198524D800267D48 /* LifeBalancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LifeBalancer.entitlements; sourceTree = "<group>"; };
 		A9007E5316FC5D9B00B20701 /* RoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleViewController.h; sourceTree = "<group>"; };
 		A9007E5416FC5D9B00B20701 /* RoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleViewController.m; sourceTree = "<group>"; };
 		A90E68B6189FEE6A00404D29 /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
@@ -178,9 +191,24 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		8205AD061992AA0C00981C7E /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				8205AD071992B27F00981C7E /* MBProgressHUD.h */,
+				8205AD081992B27F00981C7E /* MBProgressHUD.m */,
+			);
+			name = Loader;
+			sourceTree = "<group>";
+		};
 		A91F9DD716FC2CDF005160AB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8242088F198EC90C00943C32 /* CoreDataImporter.h */,
+				82420890198EC90C00943C32 /* CoreDataImporter.m */,
+				82756A07198EB75E0088C272 /* Faulter.h */,
+				82756A08198EB75E0088C272 /* Faulter.m */,
+				82756A04198EB6640088C272 /* Deduplicator.m */,
+				82756A05198EB6640088C272 /* Deduplicator.h */,
 				ECF3E9B217197239007A23F3 /* Task.h */,
 				ECF3E9B31719723A007A23F3 /* Task.m */,
 				5E8B18AD17B0ECAF0054ED7E /* Goal.h */,
@@ -295,6 +323,8 @@
 		A966D66516F994A600ABE6C3 /* LifeBalancer */ = {
 			isa = PBXGroup;
 			children = (
+				8205AD061992AA0C00981C7E /* Loader */,
+				828F07C9198524D800267D48 /* LifeBalancer.entitlements */,
 				5E80AA5017AB7E520036E6FC /* Images */,
 				ECF3E9B81719ADCF007A23F3 /* Util */,
 				A93610BF1712D73B00DD4C1C /* Library */,
@@ -362,6 +392,14 @@
 				TargetAttributes = {
 					A966D65B16F994A600ABE6C3 = {
 						DevelopmentTeam = 75JA9J2CN3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -421,9 +459,11 @@
 				A966D67016F994A600ABE6C3 /* AppDelegate.m in Sources */,
 				A95C3AFE16FAD39600206D0C /* MissionViewController.m in Sources */,
 				A95C3B0116FAD3D800206D0C /* HomeViewController.m in Sources */,
+				82420891198EC90C00943C32 /* CoreDataImporter.m in Sources */,
 				A91F9DDA16FC2D2A005160AB /* lifebalancer.xcdatamodeld in Sources */,
 				A91F9DDD16FC2FBC005160AB /* Mission.m in Sources */,
 				A9007E5516FC5D9B00B20701 /* RoleViewController.m in Sources */,
+				8205AD091992B27F00981C7E /* MBProgressHUD.m in Sources */,
 				A983F8F917005C9B009E8E3B /* DataAdapter.m in Sources */,
 				A936C9E4170315CD0080890F /* RoleDetailViewController.m in Sources */,
 				A94A7D061704282500B3F414 /* GoalViewController.m in Sources */,
@@ -431,7 +471,9 @@
 				A9BDB39817055A9E0008E2D2 /* Role+Cutomable.m in Sources */,
 				ECB71485170AAC4700ED52A1 /* WeeklyPlaningViewController.m in Sources */,
 				ECCF3835170D35BD002D7F37 /* SchedulePrioritiesViewController.m in Sources */,
+				82756A09198EB75E0088C272 /* Faulter.m in Sources */,
 				ECCF3838170D5111002D7F37 /* ScheduleTaskViewController.m in Sources */,
+				82756A06198EB6640088C272 /* Deduplicator.m in Sources */,
 				EC1B44DF17155C0F00677C18 /* UIActionSheet+BlockExtensions.m in Sources */,
 				EC1B44E017155C0F00677C18 /* UIAlertView+BlockExtensions.m in Sources */,
 				EC9965C51716AFB9007DCFEC /* SetReminderViewController.m in Sources */,
@@ -479,8 +521,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex CZARTORYSKI (96QS5TJLR4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex CZARTORYSKI (96QS5TJLR4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -495,8 +537,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "252E0DE1-C656-465B-AD69-348E19154442";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "252E0DE1-C656-465B-AD69-348E19154442";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -513,8 +555,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex CZARTORYSKI (96QS5TJLR4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex CZARTORYSKI (96QS5TJLR4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -522,8 +564,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "252E0DE1-C656-465B-AD69-348E19154442";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "252E0DE1-C656-465B-AD69-348E19154442";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -533,15 +575,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD83B6CB-E275-4C92-9AB7-09EFC0A96DC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C51DBDD6-4398-4F5C-BA53-6E57CDF3CB46";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -550,15 +595,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex CZARTORYSKI (96QS5TJLR4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22E453B8-A95F-43CC-8971-24A9D9FEA2B9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C51DBDD6-4398-4F5C-BA53-6E57CDF3CB46";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A15989DF-5B87-403A-A0CF-00E1830C25EC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LifeBalancer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</key>
+		<string>https://github.com/Czarto/LifeBalancer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LifeBalancer.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Czarto/LifeBalancer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LifeBalancer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

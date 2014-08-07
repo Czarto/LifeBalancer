@@ -29,7 +29,10 @@
 - (void)loadData
 {
     self.tabBarController.tabBar.hidden = NO;
-    mission = [[[[DataAdapter alloc]init]missions] objectAtIndex:0];
+	if([[[[DataAdapter alloc]init] missions] count] > 0)
+	{
+		mission = [[[[DataAdapter alloc]init] missions] objectAtIndex:0];
+	}
 }
 
 - (void)viewDidLoad
@@ -40,6 +43,16 @@
 
     [self loadData];
 }
+
+- (void)refreshData
+{
+	if([[[[DataAdapter alloc]init] missions] count] > 0)
+	{
+		mission = [[[[DataAdapter alloc]init] missions] objectAtIndex:0];
+		self.txtmissionstatement.text = mission.statement;
+	}
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -53,6 +66,9 @@
     
     [self.tabBarController setSelectedIndex:self.selectedVcIndex];
     self.selectedVcIndex = 0;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:@"SomethingChanged" object:nil];
+	
 }
 
 -(void)viewWillDisappear:(BOOL)animated
