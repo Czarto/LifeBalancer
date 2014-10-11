@@ -24,6 +24,7 @@
 		6E55749C1954FCB80012E1BB /* splash-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749B1954FCB80012E1BB /* splash-640x1136.png */; };
 		6E55749E1954FCEC0012E1BB /* splash-640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749D1954FCEB0012E1BB /* splash-640x960.png */; };
 		6E5574A01954FEA60012E1BB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749F1954FEA60012E1BB /* Default-568h@2x.png */; };
+		6EAD1B9719CF50C0005A8663 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAD1B9619CF50C0005A8663 /* CloudKit.framework */; };
 		8205AD091992B27F00981C7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8205AD081992B27F00981C7E /* MBProgressHUD.m */; };
 		82420891198EC90C00943C32 /* CoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82420890198EC90C00943C32 /* CoreDataImporter.m */; };
 		82756A06198EB6640088C272 /* Deduplicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 82756A04198EB6640088C272 /* Deduplicator.m */; };
@@ -87,6 +88,7 @@
 		6E55749B1954FCB80012E1BB /* splash-640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-640x1136.png"; sourceTree = "<group>"; };
 		6E55749D1954FCEB0012E1BB /* splash-640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-640x960.png"; sourceTree = "<group>"; };
 		6E55749F1954FEA60012E1BB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6EAD1B9619CF50C0005A8663 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8205AD071992B27F00981C7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Loader/MBProgressHUD.h; sourceTree = "<group>"; };
 		8205AD081992B27F00981C7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Loader/MBProgressHUD.m; sourceTree = "<group>"; };
 		8242088F198EC90C00943C32 /* CoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataImporter.h; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				A933631D170990C600305F73 /* QuartzCore.framework in Frameworks */,
 				A91F9DDF16FC374F005160AB /* CoreData.framework in Frameworks */,
 				A966D66016F994A600ABE6C3 /* UIKit.framework in Frameworks */,
+				6EAD1B9719CF50C0005A8663 /* CloudKit.framework in Frameworks */,
 				A966D66216F994A600ABE6C3 /* Foundation.framework in Frameworks */,
 				A966D66416F994A600ABE6C3 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -309,6 +312,7 @@
 		A966D65E16F994A600ABE6C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EAD1B9619CF50C0005A8663 /* CloudKit.framework */,
 				EC9965FF1716FFC5007DCFEC /* EventKitUI.framework */,
 				ECD7B833170E976300044351 /* EventKit.framework */,
 				A933631C170990C600305F73 /* QuartzCore.framework */,
@@ -576,16 +580,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E4718AC1-18B0-47F6-82AF-246F3E4116E2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E4718AC1-18B0-47F6-82AF-246F3E4116E2";
+				PROVISIONING_PROFILE = "04c96d42-5eec-4568-b0a8-11e0fa40c2e0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "04c96d42-5eec-4568-b0a8-11e0fa40c2e0";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -596,16 +600,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FRESH AIR EDUCATORS, INC. (75JA9J2CN3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FRESH AIR EDUCATORS, INC. (75JA9J2CN3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1F597843-89C7-48F8-B555-541BCE48E949";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1F597843-89C7-48F8-B555-541BCE48E949";
+				PROVISIONING_PROFILE = "3d2dbd17-8b07-49a9-9b65-605200e3a3f2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3d2dbd17-8b07-49a9-9b65-605200e3a3f2";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

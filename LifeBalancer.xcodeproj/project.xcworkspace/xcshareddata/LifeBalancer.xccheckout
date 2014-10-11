@@ -10,29 +10,29 @@
 	<string>LifeBalancer</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</key>
+		<key>96166DAB74F26BAF18F139893D3F80694EB04E6C</key>
 		<string>https://github.com/Czarto/LifeBalancer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>LifeBalancer.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</key>
+		<key>96166DAB74F26BAF18F139893D3F80694EB04E6C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Czarto/LifeBalancer.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</string>
+	<string>96166DAB74F26BAF18F139893D3F80694EB04E6C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1A1F4FD3-877C-413D-93D3-6D0F2E8A06EC</string>
+			<string>96166DAB74F26BAF18F139893D3F80694EB04E6C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>LifeBalancer</string>
 		</dict>
