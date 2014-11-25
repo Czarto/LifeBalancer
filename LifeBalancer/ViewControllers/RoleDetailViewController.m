@@ -10,12 +10,13 @@
 #import "DataAdapter.h"
 #import "Role.h"
 
-@interface RoleDetailViewController ()
-
+@interface RoleDetailViewController (){
+    NSArray *rolesarray;
+}
 @end
 
 @implementation RoleDetailViewController
-@synthesize role,rolesarray;
+@synthesize role;
 
 - (void)viewDidLoad
 {

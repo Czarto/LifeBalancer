@@ -39,8 +39,7 @@
 {
     [super viewDidLoad];
     
-    self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    //self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self loadData];
 }
 
@@ -66,7 +65,7 @@
     
     [self.tabBarController setSelectedIndex:self.selectedVcIndex];
     self.selectedVcIndex = 0;
-	
+	//self.parentViewController.navigationItem.rightBarButtonItem = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:@"SomethingChanged" object:nil];
 	
 }
@@ -120,16 +119,22 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     [self setEditing:YES animated:YES];
-    
+	
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, 150, 0.0);
     textView.contentInset = contentInsets;
     textView.scrollIndicatorInsets = contentInsets;
-}
+	self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+}
+- (void)textViewDidChange:(UITextView *)textView {
+	self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
+	[self setEditing:YES animated:YES];
+}
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     [self setEditing:NO animated:YES];
-    
+	self.parentViewController.navigationItem.rightBarButtonItem = nil;
+	
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     textView.contentInset = contentInsets;
     textView.scrollIndicatorInsets = contentInsets;

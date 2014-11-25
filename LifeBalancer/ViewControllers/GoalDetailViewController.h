@@ -11,12 +11,16 @@
 @class Role;
 @class Goal;
 
+@interface ContentHeightTextView : UITextView
+
+@end
+
 @interface GoalDetailViewController : UITableViewController<UITextViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) Goal *goal;
 @property (strong, nonatomic) Role *role;
 @property (weak, nonatomic) IBOutlet UITextField *txtgoalname;
-@property (weak, nonatomic) IBOutlet UITextView *txtGoalNote;
+@property (weak, nonatomic) IBOutlet ContentHeightTextView *txtGoalNote;
 @property (nonatomic,strong) GoalViewController *goalVC;
 @property (nonatomic,strong) NSIndexPath *currentIndexPath;
 - (IBAction)saveclicked:(id)sender;

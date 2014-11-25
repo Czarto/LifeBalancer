@@ -24,6 +24,9 @@
                                  sourceXMLAttribute:(NSString*)sourceXMLAttribute
                                       attributeDict:(NSDictionary*)attributeDict
                                             context:(NSManagedObjectContext*)context;
+- (NSManagedObject*)insertFieldObjectInTarget:(NSString*) entity
+								attributeDict:(NSDictionary*)dict
+									  contect:(NSManagedObjectContext*)context;
 
 - (void)deepCopyEntities:(NSArray*)entities
              fromContext:(NSManagedObjectContext*)sourceContext

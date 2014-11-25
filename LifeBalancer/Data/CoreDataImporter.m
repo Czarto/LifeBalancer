@@ -105,6 +105,15 @@
                                         inContext:context];
 }
 
+- (NSManagedObject*)insertFieldObjectInTarget:(NSString*) entity
+								attributeDict:(NSDictionary*)dict
+									  contect:(NSManagedObjectContext*)context{
+	
+	NSManagedObject *newObject = [NSEntityDescription insertNewObjectForEntityForName:entity inManagedObjectContext:context];
+	[newObject setValuesForKeysWithDictionary:dict];
+	return newObject;
+	
+}
 #pragma mark – DEEP COPY
 - (NSString*)objectInfo:(NSManagedObject*)object {
     

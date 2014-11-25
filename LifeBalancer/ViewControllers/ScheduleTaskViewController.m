@@ -44,11 +44,11 @@
     self.navigationItem.title =task.name;
     //create bar buttons
     [self.navigationController setToolbarHidden:YES];
-    UIBarButtonItem *backButton = [[ UIBarButtonItem alloc ] initWithTitle: @"Back"
-                                                                     style: UIBarButtonItemStyleBordered
-                                                                    target: self
-                                                                    action: @selector(back)];
-    
+//    UIBarButtonItem *backButton = [[ UIBarButtonItem alloc ] initWithTitle: @"Back"
+//                                                                     style: UIBarButtonItemStyleBordered
+//                                                                    target: self
+//                                                                    action: @selector(back)];
+	
    // self.toolbarItems = [ NSArray arrayWithObjects: backButton, nil];
     
    

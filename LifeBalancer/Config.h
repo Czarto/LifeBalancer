@@ -6,4 +6,4 @@
 //  Copyright (c) 2013 EFutures. All rights reserved.
 //
 
-#define ADD_TASK_MAX_LIMIT  5
+#define ADD_TASK_MAX_LIMIT  10

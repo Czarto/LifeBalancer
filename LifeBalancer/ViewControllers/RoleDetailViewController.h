@@ -1,3 +1,4 @@
+
 //
 //  RoleDetailViewController.h
 //  LifeBalancer
@@ -13,5 +14,5 @@
 - (IBAction)saveclick:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtrolename;
 @property (nonatomic, strong) Role *role;
-@property (nonatomic, strong) NSArray *rolesarray;
+
 @end

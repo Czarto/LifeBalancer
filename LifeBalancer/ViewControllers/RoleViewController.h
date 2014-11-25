@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@interface RoleViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
 {
-    int roleCount;
+	int roleCount;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

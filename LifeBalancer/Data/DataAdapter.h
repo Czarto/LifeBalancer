@@ -15,11 +15,12 @@
     NSManagedObjectContext* managedObjectContext;
     EKEventStore *eventDB;
 }
-- (void)initialSetup;
-- (void)initialSetup2;
+-(void)initialSetup;
+-(void)initialSetup2;
 -(NSArray *)missions;
 -(Role *)getemptyrole;
 -(NSArray *)roles;
+-(NSArray*)customRoles;
 -(BOOL)resetPriorities;
 -(BOOL)deleteCalenderEvent:(Task *)task;
 -(BOOL)editCalenderEvent:(Task *)task withTaskName:(NSString *)taskName;

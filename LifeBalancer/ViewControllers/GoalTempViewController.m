@@ -7,6 +7,7 @@
 //
 
 #import "GoalTempViewController.h"
+#import "SetPrioritiesViewController.h"
 
 @interface GoalTempViewController ()<UITabBarDelegate>
 
@@ -25,17 +26,17 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    UIBarButtonItem *backButton = [[ UIBarButtonItem alloc ] initWithTitle: @"Home"
-                                                                     style: UIBarButtonItemStyleBordered
-                                                                    target: self
-                                                                    action: @selector(home)];
-    self.tabBar.delegate = self;
-    gvc = [self.storyboard instantiateViewControllerWithIdentifier:@"goalsVC"];
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.leftBarButtonItem = backButton;
-    [self.tabBar setSelectedItem:self.tabBarItem4];
+	[super viewDidLoad];
+	self.tabBar.delegate = self;
+	[self.tabBar setSelectedItem:self.tabBarItem4];
+	self.view.backgroundColor = [UIColor whiteColor];
+	self.navigationItem.hidesBackButton=NO;
+	[self.navigationController setToolbarHidden:YES];
+	self.navigationController.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.parentViewController.navigationItem.title = @"Goal";
+	gvc = [self.storyboard instantiateViewControllerWithIdentifier:@"goalsVC"];
+	
+	
     //[self presentViewController:gvc animated:NO completion:nil];
     //[self addChildViewController:gvc];
    // [self.view addSubview:gvc.view];
@@ -69,21 +70,47 @@
     
 }
 
+//-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+//{
+//	if (item.tag == 2) {
+//		self.tabBarController.selectedIndex = 2;
+//		SetPrioritiesViewController *gVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SetPriorities"];
+//		[self.navigationController pushViewController:gVc animated:YES];
+//	}
+//	else  if (item.tag==3) {
+//		
+//	}
+//	else if(item.tag==4)
+//	{
+//		self.tabBarController.selectedIndex = 4;
+//		GoalViewController *gVc = [self.storyboard instantiateViewControllerWithIdentifier:@"tempGoalVC"];
+//		[self.navigationController pushViewController:gVc animated:YES];
+//	}
+//}
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
+	NSLog(@"selected item tag : %d",(int)item.tag);
+	if (item.tag==2) {
+		self.tabBarController.selectedIndex = 2;
+		SetPrioritiesViewController *gVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SetPriorities"];
+		//[self.navigationController popToRootViewControllerAnimated:YES];
+		[self.navigationController pushViewController:gVc animated:NO];
+	}
+	else  if (item.tag==3) {
+		//[self goNext];
+	}
+	else if(item.tag==4)
+	{
+		self.tabBarController.selectedIndex = 4;
+		//[self.navigationController popToRootViewControllerAnimated:YES];
+		GoalViewController *gVc = [self.storyboard instantiateViewControllerWithIdentifier:@"tempGoalVC"];
+		[self.navigationController pushViewController:gVc animated:NO];
+	}
+}
 
-    
-    NSLog(@"selected item tag : %d",item.tag);
-    if (item.tag==1) {
-        [self home];
-    }
-    else  if (item.tag==2) {
-        //[self back];
-        [self switchToFirstTab];
-    }
-    else  if (item.tag==3) {
-        [self switchToSecondTab];
-    }
+-(void)viewWillDisappear:(BOOL)animated
+{
+	//[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

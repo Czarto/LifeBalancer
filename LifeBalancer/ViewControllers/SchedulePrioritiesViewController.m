@@ -34,22 +34,14 @@
      self.navigationItem.title = @"Schedule Priorities";
 
     //creat barbuttons
-    UIBarButtonItem *backButton = [[ UIBarButtonItem alloc ] initWithTitle: @"Home"
-                                                                     style: UIBarButtonItemStyleBordered
-                                                                    target: self
-                                                                    action: @selector(home)];
-    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                   target:self
-                                                                                   action:nil];
-
-    UIBarButtonItem *doneButton = [[ UIBarButtonItem alloc ] initWithTitle: @"Done"
-                                                                     style: UIBarButtonItemStyleDone
-                                                                    target: self
-                                                                    action: @selector(done)];
-    
+//    UIBarButtonItem *backButton = [[ UIBarButtonItem alloc ] initWithTitle: @"Home"
+//                                                                     style: UIBarButtonItemStyleBordered
+//                                                                    target: self
+//                                                                    action: @selector(home)];
+//    
+	
      // self.toolbarItems = [ NSArray arrayWithObjects: backButton,flexibleSpace,doneButton,nil];
-     self.navigationItem.leftBarButtonItem = backButton;
+//     self.navigationItem.leftBarButtonItem = backButton;
       [self loadroles];
 }
 
@@ -94,7 +86,7 @@
         NSIndexPath *swipedIndexPath = [_tableView indexPathForRowAtPoint:swipeLocation];
         UITableViewCell *swipedCell = [_tableView cellForRowAtIndexPath:swipedIndexPath];
         
-        NSLog(@"swiped index: %d",swipedIndexPath.row);
+        NSLog(@"swiped index: %d",(int)swipedIndexPath.row);
         // do what you want here
         
         
@@ -285,7 +277,7 @@
 //        [self done];
 //    }
     
-    NSLog(@"selected item tag : %d",item.tag);
+    NSLog(@"selected item tag : %d",(int)item.tag);
     if (item.tag==1) {
         [self home];
     }

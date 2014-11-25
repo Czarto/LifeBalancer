@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *goals;
 @property (nonatomic, retain) NSSet *tasks;
+
 @end
 
 @interface Role (CoreDataGeneratedAccessors)

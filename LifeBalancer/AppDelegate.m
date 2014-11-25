@@ -25,6 +25,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[[UITabBarItem appearance] setTitleTextAttributes:@{
+														NSFontAttributeName: [UIFont systemFontOfSize:16],
+														NSForegroundColorAttributeName: [UIColor colorWithRed:47/255.0f green:112/255.0f blue:225/255.0f alpha:1.0]
+														}forState:UIControlStateNormal];
+
 	[self.managedObjectContext save:nil];
     return YES;
 }
@@ -143,7 +148,7 @@
 
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
     NSPersistentStoreCoordinator *psc = __persistentStoreCoordinator;
-    
+
 	// ** Note: if you adapt this code for your own use, you MUST change this variable:
 	NSString *iCloudEnabledAppID = @"75JA9J2CN3.com.lifeaireducators.testdemo1";
 	

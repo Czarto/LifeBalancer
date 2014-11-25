@@ -115,93 +115,121 @@
 															   attributeDict:attributeDict
 																	 context:managedObjectContext];
 	
-	
-	NSDictionary *role1 = 	[NSDictionary dictionaryWithObject:@"Physical" forKey:@"name"];
-	
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem1 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role1
-																   context:managedObjectContext];
-	
-	
-	NSDictionary *role2 = [NSDictionary dictionaryWithObject:@"Mental" forKey:@"name"];
+	//NSDictionary *role1 = 	[NSDictionary dictionaryWithObject:@"Physical" forKey:@"name"];
+	NSDictionary *role1 = [NSDictionary dictionaryWithObjectsAndKeys:
+						   @"Physical",@"name",
+						   [NSNumber numberWithBool:NO],@"custom",
+						   nil];
 	
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem2 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role2
-																   context:managedObjectContext];
+//	NSManagedObject *roleItem1 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role1
+//																   context:managedObjectContext];
 	
-	NSDictionary *role3 = 	[NSDictionary dictionaryWithObject:@"Spiritual" forKey:@"name"];
+	NSManagedObject *roleItem1 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role1 contect:managedObjectContext];
+	
+	
+	NSDictionary *role2 = [NSDictionary dictionaryWithObjectsAndKeys:
+						   @"Mental",@"name",
+						   [NSNumber numberWithBool:NO],@"custom",
+						   nil];
+
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+//	NSManagedObject *roleItem2 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role2
+//																   context:managedObjectContext];
+	NSManagedObject *roleItem2 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role2 contect:managedObjectContext];
+
+	NSDictionary *role3 = [NSDictionary dictionaryWithObjectsAndKeys:
+						   @"Spiritual",@"name",
+						   [NSNumber numberWithBool:NO],@"custom",
+						   nil];
+
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+//	NSManagedObject *roleItem3 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role3
+//																   context:managedObjectContext];
+	
+	NSManagedObject *roleItem3 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role3 contect:managedObjectContext];
+
+	NSDictionary *role4 = [NSDictionary dictionaryWithObjectsAndKeys:
+						   @"Social",@"name",
+						   [NSNumber numberWithBool:NO],@"custom",
+						   nil];
+
+	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
+//	NSManagedObject *roleItem4 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role4
+//																   context:managedObjectContext];
+	
+	NSManagedObject *roleItem4 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role4 contect:managedObjectContext];
+
+	NSMutableDictionary *role5 = [NSMutableDictionary dictionaryWithObject:@"Individual" forKey:@"name"];
+	[role5 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
 	
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem3 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role3
-																   context:managedObjectContext];
+//	NSManagedObject *roleItem5 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role5
+//																   context:managedObjectContext];
 	
-	
-	NSDictionary *role4 = [NSDictionary dictionaryWithObject:@"Social" forKey:@"name"];
-	
+	NSManagedObject *roleItem5 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role5 contect:managedObjectContext];
+
+	NSMutableDictionary *role6 = [NSMutableDictionary dictionaryWithObject:@"Family Member" forKey:@"name"];
+	[role6 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem4 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role4
-																   context:managedObjectContext];
+//	NSManagedObject *roleItem6 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role6
+//																   context:managedObjectContext];
 	
-	
-	NSDictionary *role5 = [NSDictionary dictionaryWithObject:@"Individual" forKey:@"name"];
-	
+	NSManagedObject *roleItem6 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role6 contect:managedObjectContext];
+
+	NSMutableDictionary *role7 = [NSMutableDictionary dictionaryWithObject:@"Friend" forKey:@"name"];
+	[role7 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem5 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role5
-																   context:managedObjectContext];
+//	NSManagedObject *roleItem7 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role7
+//																   context:managedObjectContext];
 	
-	
-	NSDictionary *role6 = [NSDictionary dictionaryWithObject:@"Family Member" forKey:@"name"];
-	
+	NSManagedObject *roleItem7 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role7 contect:managedObjectContext];
+
+	NSMutableDictionary *role8 = [NSMutableDictionary dictionaryWithObject:@"Employee" forKey:@"name"];
+	[role8 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem6 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role6
-																   context:managedObjectContext];
+//	NSManagedObject *roleItem8 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role8
+//																   context:managedObjectContext];
 	
-	
-	NSDictionary *role7 = [NSDictionary dictionaryWithObject:@"Friend" forKey:@"name"];
-	
+	NSManagedObject *roleItem8 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role8 contect:managedObjectContext];
+
+	NSMutableDictionary *role9 = [NSMutableDictionary dictionaryWithObject:@"Homeowner" forKey:@"name"];
+	[role9 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem7 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role7
-																   context:managedObjectContext];
-	
-	
-	NSDictionary *role8 = [NSDictionary dictionaryWithObject:@"Employee" forKey:@"name"];
-	
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem8 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role8
-																   context:managedObjectContext];
-	
-	NSDictionary *role9 = [NSDictionary dictionaryWithObject:@"Homeowner" forKey:@"name"];
-	
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-	NSManagedObject *roleItem9 = [importer insertBasicObjectInTargetEntity:@"Role"
-													 targetEntityAttribute:@"name"
-														sourceXMLAttribute:@"name"
-															 attributeDict:role9
-																   context:managedObjectContext];
+//	NSManagedObject *roleItem9 = [importer insertBasicObjectInTargetEntity:@"Role"
+//													 targetEntityAttribute:@"name"
+//														sourceXMLAttribute:@"name"
+//															 attributeDict:role9
+//																   context:managedObjectContext];
+	NSManagedObject *roleItem9 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role9 contect:managedObjectContext];
+
 	
 	// STEP 6: Save new objects to the persistent store.
 	[CoreDataImporter saveContext:managedObjectContext];
@@ -279,13 +307,24 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:[NSEntityDescription entityForName:@"Role"
                                         inManagedObjectContext:managedObjectContext]];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"custom" ascending:YES];
+	[fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+
     NSError *error;
     return [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
+-(NSArray*)customRoles
+{
 
-
-
-
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	[fetchRequest setEntity:[NSEntityDescription entityForName:@"Role"
+										inManagedObjectContext:managedObjectContext]];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"custom" ascending:YES];
+	[fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+	
+	NSError *error;
+	return [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+}
 
 #pragma mark - set Priorities
 // Tasks against roles for week plan
@@ -387,26 +426,15 @@
 }
 
 -(void)reset {
-   
- 
         NSArray *rolesarray = [self roles];
-
         for (Role *role in rolesarray) {
-            
             NSArray *taskarray = [self getTasksByPriority:role.objectID];
             for(int x = 0; x<taskarray.count;x++){
-                
                 Task * task = [taskarray objectAtIndex:x];
-                                             
                       [role removeTasksObject:task];
                       [task.managedObjectContext deleteObject:task];
-                
             }
-            
-            
         }
-
-    
        // Save the context.
     NSError *error;
          
@@ -414,10 +442,7 @@
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
              abort();
         }
-           
 }
-
-
 //Delete calender event (durring Set Priorities singale task delete)
 
 -(BOOL)deleteCalenderEvent:(Task *)task{

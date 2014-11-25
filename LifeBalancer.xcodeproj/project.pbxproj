@@ -52,6 +52,23 @@
 		A966D67916F994A600ABE6C3 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A966D67716F994A600ABE6C3 /* MainStoryboard.storyboard */; };
 		A983F8F917005C9B009E8E3B /* DataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A983F8F817005C9B009E8E3B /* DataAdapter.m */; };
 		A9BDB39817055A9E0008E2D2 /* Role+Cutomable.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BDB39717055A9E0008E2D2 /* Role+Cutomable.m */; };
+		B17330A81A121E9600DFD0F7 /* CCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B17330A71A121E9600DFD0F7 /* CCustomButton.m */; };
+		B17330AB1A12912700DFD0F7 /* UTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B17330AA1A12912700DFD0F7 /* UTTableViewCell.m */; };
+		B1B0C59D1A0FF3D8006194F7 /* customtextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B0C59C1A0FF3D8006194F7 /* customtextfield.m */; };
+		CFE63B6A1A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B531A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.m */; };
+		CFE63B6B1A252CFE00764F97 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B551A252CFE00764F97 /* SWCellScrollView.m */; };
+		CFE63B6C1A252CFE00764F97 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B571A252CFE00764F97 /* SWLongPressGestureRecognizer.m */; };
+		CFE63B6D1A252CFE00764F97 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B591A252CFE00764F97 /* SWTableViewCell.m */; };
+		CFE63B6E1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B5B1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		CFE63B6F1A252CFE00764F97 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B5D1A252CFE00764F97 /* SWUtilityButtonView.m */; };
+		CFE63B701A252CFE00764F97 /* QRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B601A252CFE00764F97 /* QRadioButton.m */; };
+		CFE63B711A252CFE00764F97 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE63B611A252CFE00764F97 /* radio_checked.png */; };
+		CFE63B721A252CFE00764F97 /* radio_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE63B621A252CFE00764F97 /* radio_checked@2x.png */; };
+		CFE63B731A252CFE00764F97 /* radio_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE63B631A252CFE00764F97 /* radio_unchecked.png */; };
+		CFE63B741A252CFE00764F97 /* radio_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE63B641A252CFE00764F97 /* radio_unchecked@2x.png */; };
+		CFE63B751A252CFE00764F97 /* radio_checked@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = CFE63B651A252CFE00764F97 /* radio_checked@2x.psd */; };
+		CFE63B761A252CFE00764F97 /* SwipeableCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B671A252CFE00764F97 /* SwipeableCellTableViewCell.m */; };
+		CFE63B771A252CFE00764F97 /* UMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B691A252CFE00764F97 /* UMTableViewCell.m */; };
 		EC1B44DF17155C0F00677C18 /* UIActionSheet+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B44DC17155C0F00677C18 /* UIActionSheet+BlockExtensions.m */; };
 		EC1B44E017155C0F00677C18 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B44DE17155C0F00677C18 /* UIAlertView+BlockExtensions.m */; };
 		EC9965C51716AFB9007DCFEC /* SetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9965C41716AFB9007DCFEC /* SetReminderViewController.m */; };
@@ -135,6 +152,35 @@
 		A983F8F817005C9B009E8E3B /* DataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAdapter.m; sourceTree = "<group>"; };
 		A9BDB39617055A9E0008E2D2 /* Role+Cutomable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Role+Cutomable.h"; sourceTree = "<group>"; };
 		A9BDB39717055A9E0008E2D2 /* Role+Cutomable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Role+Cutomable.m"; sourceTree = "<group>"; };
+		B17330A61A121E9600DFD0F7 /* CCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCustomButton.h; sourceTree = "<group>"; };
+		B17330A71A121E9600DFD0F7 /* CCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCustomButton.m; sourceTree = "<group>"; };
+		B17330A91A12912700DFD0F7 /* UTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTTableViewCell.h; sourceTree = "<group>"; };
+		B17330AA1A12912700DFD0F7 /* UTTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTTableViewCell.m; sourceTree = "<group>"; };
+		B1B0C59B1A0FF3D8006194F7 /* customtextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customtextfield.h; sourceTree = "<group>"; };
+		B1B0C59C1A0FF3D8006194F7 /* customtextfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customtextfield.m; sourceTree = "<group>"; };
+		CFE63B521A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		CFE63B531A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		CFE63B541A252CFE00764F97 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		CFE63B551A252CFE00764F97 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		CFE63B561A252CFE00764F97 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		CFE63B571A252CFE00764F97 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		CFE63B581A252CFE00764F97 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		CFE63B591A252CFE00764F97 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		CFE63B5A1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		CFE63B5B1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		CFE63B5C1A252CFE00764F97 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		CFE63B5D1A252CFE00764F97 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		CFE63B5F1A252CFE00764F97 /* QRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioButton.h; sourceTree = "<group>"; };
+		CFE63B601A252CFE00764F97 /* QRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioButton.m; sourceTree = "<group>"; };
+		CFE63B611A252CFE00764F97 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
+		CFE63B621A252CFE00764F97 /* radio_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_checked@2x.png"; sourceTree = "<group>"; };
+		CFE63B631A252CFE00764F97 /* radio_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_unchecked.png; sourceTree = "<group>"; };
+		CFE63B641A252CFE00764F97 /* radio_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_unchecked@2x.png"; sourceTree = "<group>"; };
+		CFE63B651A252CFE00764F97 /* radio_checked@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "radio_checked@2x.psd"; sourceTree = "<group>"; };
+		CFE63B661A252CFE00764F97 /* SwipeableCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeableCellTableViewCell.h; sourceTree = "<group>"; };
+		CFE63B671A252CFE00764F97 /* SwipeableCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeableCellTableViewCell.m; sourceTree = "<group>"; };
+		CFE63B681A252CFE00764F97 /* UMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMTableViewCell.h; sourceTree = "<group>"; };
+		CFE63B691A252CFE00764F97 /* UMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMTableViewCell.m; sourceTree = "<group>"; };
 		EC1B44DB17155C0F00677C18 /* UIActionSheet+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+BlockExtensions.h"; sourceTree = "<group>"; };
 		EC1B44DC17155C0F00677C18 /* UIActionSheet+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+BlockExtensions.m"; sourceTree = "<group>"; };
 		EC1B44DD17155C0F00677C18 /* UIAlertView+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockExtensions.h"; sourceTree = "<group>"; };
@@ -233,6 +279,12 @@
 		A93610BF1712D73B00DD4C1C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CFE63B511A252CFE00764F97 /* PodFiles */,
+				CFE63B5E1A252CFE00764F97 /* QRadioButton */,
+				CFE63B661A252CFE00764F97 /* SwipeableCellTableViewCell.h */,
+				CFE63B671A252CFE00764F97 /* SwipeableCellTableViewCell.m */,
+				CFE63B681A252CFE00764F97 /* UMTableViewCell.h */,
+				CFE63B691A252CFE00764F97 /* UMTableViewCell.m */,
 				A93610C01712D73B00DD4C1C /* BlockAlertAction */,
 			);
 			path = Library;
@@ -252,6 +304,8 @@
 		A95C3AFB16FAD35800206D0C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B17330A91A12912700DFD0F7 /* UTTableViewCell.h */,
+				B17330AA1A12912700DFD0F7 /* UTTableViewCell.m */,
 				A95C3AFC16FAD39600206D0C /* MissionViewController.h */,
 				A95C3AFD16FAD39600206D0C /* MissionViewController.m */,
 				A95C3AFF16FAD3D800206D0C /* HomeViewController.h */,
@@ -264,6 +318,8 @@
 				A94A7D051704282500B3F414 /* GoalViewController.m */,
 				A94A7D0717044DD000B3F414 /* GoalDetailViewController.h */,
 				A94A7D0817044DD000B3F414 /* GoalDetailViewController.m */,
+				B1B0C59B1A0FF3D8006194F7 /* customtextfield.h */,
+				B1B0C59C1A0FF3D8006194F7 /* customtextfield.m */,
 				ECB71483170AAC4700ED52A1 /* WeeklyPlaningViewController.h */,
 				ECB71484170AAC4700ED52A1 /* WeeklyPlaningViewController.m */,
 				ECCF3833170D35BD002D7F37 /* SchedulePrioritiesViewController.h */,
@@ -274,6 +330,8 @@
 				EC9965C41716AFB9007DCFEC /* SetReminderViewController.m */,
 				ECF3E9AC1719449B007A23F3 /* SetPrioritiesViewController.h */,
 				ECF3E9AD1719449B007A23F3 /* SetPrioritiesViewController.m */,
+				B17330A61A121E9600DFD0F7 /* CCustomButton.h */,
+				B17330A71A121E9600DFD0F7 /* CCustomButton.m */,
 				ECF3E9AF17195B78007A23F3 /* SetPrioritiesDetailViewController.h */,
 				ECF3E9B017195B79007A23F3 /* SetPrioritiesDetailViewController.m */,
 				5EBD813017AA3006002D2B20 /* HomeTempViewController.h */,
@@ -287,12 +345,7 @@
 		A966D65316F994A600ABE6C3 = {
 			isa = PBXGroup;
 			children = (
-				6E55749F1954FEA60012E1BB /* Default-568h@2x.png */,
-				6E55749D1954FCEB0012E1BB /* splash-640x960.png */,
-				6E55749B1954FCB80012E1BB /* splash-640x1136.png */,
-				6E5574951954FA930012E1BB /* 58.png */,
-				6E5574931954FA5F0012E1BB /* 80.png */,
-				A90E68B6189FEE6A00404D29 /* 120.png */,
+				B1B1EBBC1A11480F00967DCB /* QRadioFiles */,
 				A966D66516F994A600ABE6C3 /* LifeBalancer */,
 				A966D65E16F994A600ABE6C3 /* Frameworks */,
 				A966D65D16F994A600ABE6C3 /* Products */,
@@ -355,6 +408,52 @@
 				A966D67516F994A600ABE6C3 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1B1EBBC1A11480F00967DCB /* QRadioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6E55749F1954FEA60012E1BB /* Default-568h@2x.png */,
+				6E55749D1954FCEB0012E1BB /* splash-640x960.png */,
+				6E55749B1954FCB80012E1BB /* splash-640x1136.png */,
+				6E5574951954FA930012E1BB /* 58.png */,
+				6E5574931954FA5F0012E1BB /* 80.png */,
+				A90E68B6189FEE6A00404D29 /* 120.png */,
+			);
+			name = QRadioFiles;
+			sourceTree = "<group>";
+		};
+		CFE63B511A252CFE00764F97 /* PodFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CFE63B521A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.h */,
+				CFE63B531A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.m */,
+				CFE63B541A252CFE00764F97 /* SWCellScrollView.h */,
+				CFE63B551A252CFE00764F97 /* SWCellScrollView.m */,
+				CFE63B561A252CFE00764F97 /* SWLongPressGestureRecognizer.h */,
+				CFE63B571A252CFE00764F97 /* SWLongPressGestureRecognizer.m */,
+				CFE63B581A252CFE00764F97 /* SWTableViewCell.h */,
+				CFE63B591A252CFE00764F97 /* SWTableViewCell.m */,
+				CFE63B5A1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.h */,
+				CFE63B5B1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.m */,
+				CFE63B5C1A252CFE00764F97 /* SWUtilityButtonView.h */,
+				CFE63B5D1A252CFE00764F97 /* SWUtilityButtonView.m */,
+			);
+			path = PodFiles;
+			sourceTree = "<group>";
+		};
+		CFE63B5E1A252CFE00764F97 /* QRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				CFE63B5F1A252CFE00764F97 /* QRadioButton.h */,
+				CFE63B601A252CFE00764F97 /* QRadioButton.m */,
+				CFE63B611A252CFE00764F97 /* radio_checked.png */,
+				CFE63B621A252CFE00764F97 /* radio_checked@2x.png */,
+				CFE63B631A252CFE00764F97 /* radio_unchecked.png */,
+				CFE63B641A252CFE00764F97 /* radio_unchecked@2x.png */,
+				CFE63B651A252CFE00764F97 /* radio_checked@2x.psd */,
+			);
+			path = QRadioButton;
 			sourceTree = "<group>";
 		};
 		ECF3E9B81719ADCF007A23F3 /* Util */ = {
@@ -432,11 +531,16 @@
 				A966D66A16F994A600ABE6C3 /* InfoPlist.strings in Resources */,
 				6E5574961954FA930012E1BB /* 58.png in Resources */,
 				A966D67216F994A600ABE6C3 /* Default.png in Resources */,
+				CFE63B741A252CFE00764F97 /* radio_unchecked@2x.png in Resources */,
 				6E55749C1954FCB80012E1BB /* splash-640x1136.png in Resources */,
 				A966D67416F994A600ABE6C3 /* Default@2x.png in Resources */,
 				A966D67916F994A600ABE6C3 /* MainStoryboard.storyboard in Resources */,
+				CFE63B731A252CFE00764F97 /* radio_unchecked.png in Resources */,
 				A91F9DE116FC4073005160AB /* lifebalancer.sqlite in Resources */,
+				CFE63B751A252CFE00764F97 /* radio_checked@2x.psd in Resources */,
 				6E5574941954FA5F0012E1BB /* 80.png in Resources */,
+				CFE63B721A252CFE00764F97 /* radio_checked@2x.png in Resources */,
+				CFE63B711A252CFE00764F97 /* radio_checked.png in Resources */,
 				5E80AA5C17AB84BC0036E6FC /* pro-30.png in Resources */,
 				5E80AA5E17AB84E80036E6FC /* pro-40.png in Resources */,
 				5E80AA6017AB85290036E6FC /* star-30.png in Resources */,
@@ -462,18 +566,24 @@
 				A966D66C16F994A600ABE6C3 /* main.m in Sources */,
 				A966D67016F994A600ABE6C3 /* AppDelegate.m in Sources */,
 				A95C3AFE16FAD39600206D0C /* MissionViewController.m in Sources */,
+				CFE63B701A252CFE00764F97 /* QRadioButton.m in Sources */,
 				A95C3B0116FAD3D800206D0C /* HomeViewController.m in Sources */,
 				82420891198EC90C00943C32 /* CoreDataImporter.m in Sources */,
 				A91F9DDA16FC2D2A005160AB /* lifebalancer.xcdatamodeld in Sources */,
 				A91F9DDD16FC2FBC005160AB /* Mission.m in Sources */,
+				B17330AB1A12912700DFD0F7 /* UTTableViewCell.m in Sources */,
+				CFE63B6C1A252CFE00764F97 /* SWLongPressGestureRecognizer.m in Sources */,
 				A9007E5516FC5D9B00B20701 /* RoleViewController.m in Sources */,
 				8205AD091992B27F00981C7E /* MBProgressHUD.m in Sources */,
 				A983F8F917005C9B009E8E3B /* DataAdapter.m in Sources */,
 				A936C9E4170315CD0080890F /* RoleDetailViewController.m in Sources */,
 				A94A7D061704282500B3F414 /* GoalViewController.m in Sources */,
 				A94A7D0917044DD000B3F414 /* GoalDetailViewController.m in Sources */,
+				CFE63B6A1A252CFE00764F97 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				CFE63B771A252CFE00764F97 /* UMTableViewCell.m in Sources */,
 				A9BDB39817055A9E0008E2D2 /* Role+Cutomable.m in Sources */,
 				ECB71485170AAC4700ED52A1 /* WeeklyPlaningViewController.m in Sources */,
+				B1B0C59D1A0FF3D8006194F7 /* customtextfield.m in Sources */,
 				ECCF3835170D35BD002D7F37 /* SchedulePrioritiesViewController.m in Sources */,
 				82756A09198EB75E0088C272 /* Faulter.m in Sources */,
 				ECCF3838170D5111002D7F37 /* ScheduleTaskViewController.m in Sources */,
@@ -482,12 +592,18 @@
 				EC1B44E017155C0F00677C18 /* UIAlertView+BlockExtensions.m in Sources */,
 				EC9965C51716AFB9007DCFEC /* SetReminderViewController.m in Sources */,
 				ECF3E9A8171942E1007A23F3 /* Role.m in Sources */,
+				B17330A81A121E9600DFD0F7 /* CCustomButton.m in Sources */,
 				ECF3E9AE1719449B007A23F3 /* SetPrioritiesViewController.m in Sources */,
+				CFE63B6D1A252CFE00764F97 /* SWTableViewCell.m in Sources */,
+				CFE63B6E1A252CFE00764F97 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				ECF3E9B117195B7A007A23F3 /* SetPrioritiesDetailViewController.m in Sources */,
 				ECF3E9B41719723A007A23F3 /* Task.m in Sources */,
+				CFE63B6F1A252CFE00764F97 /* SWUtilityButtonView.m in Sources */,
 				5EBD813217AA3006002D2B20 /* HomeTempViewController.m in Sources */,
 				5EAA998317AA447B008BC1C5 /* GoalTempViewController.m in Sources */,
 				5E8B18AF17B0ECAF0054ED7E /* Goal.m in Sources */,
+				CFE63B761A252CFE00764F97 /* SwipeableCellTableViewCell.m in Sources */,
+				CFE63B6B1A252CFE00764F97 /* SWCellScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,8 +641,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Glenn Chiu (J67677K68Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Glenn Chiu (J67677K68Z)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -541,8 +657,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "252E0DE1-C656-465B-AD69-348E19154442";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "252E0DE1-C656-465B-AD69-348E19154442";
+				PROVISIONING_PROFILE = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -559,8 +675,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiren Gujarati (2PUN2KNPZD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Glenn Chiu (J67677K68Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Glenn Chiu (J67677K68Z)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -568,8 +684,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "252E0DE1-C656-465B-AD69-348E19154442";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "252E0DE1-C656-465B-AD69-348E19154442";
+				PROVISIONING_PROFILE = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -580,16 +696,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Glenn Chiu (J67677K68Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Glenn Chiu (J67677K68Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "04c96d42-5eec-4568-b0a8-11e0fa40c2e0";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "04c96d42-5eec-4568-b0a8-11e0fa40c2e0";
+				PROVISIONING_PROFILE = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -600,16 +716,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: FRESH AIR EDUCATORS, INC. (75JA9J2CN3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FRESH AIR EDUCATORS, INC. (75JA9J2CN3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Glenn Chiu (J67677K68Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Glenn Chiu (J67677K68Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3d2dbd17-8b07-49a9-9b65-605200e3a3f2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3d2dbd17-8b07-49a9-9b65-605200e3a3f2";
+				PROVISIONING_PROFILE = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cbeb5acd-528c-400e-8a8a-8c9c3f8d09a6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
