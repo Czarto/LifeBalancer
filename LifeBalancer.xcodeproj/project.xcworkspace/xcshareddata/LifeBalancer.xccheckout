@@ -14,7 +14,7 @@
 		<string>https://github.com/Czarto/LifeBalancer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LifeBalancer.xcodeproj/project.xcworkspace</string>
+	<string>LifeBalancer.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>96166DAB74F26BAF18F139893D3F80694EB04E6C</key>
