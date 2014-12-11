@@ -328,13 +328,16 @@
 	[super setEditing:editing animated:animated];
 	
 	[self.navigationItem setHidesBackButton:editing animated:YES];
-	
 	[self.tableView setEditing:editing animated:animated];
 	
 	if(!editing) {
 		NSLog(@"Done");
+
 		[self.tableView reloadData];
 		
+	} else {
+		goal = nil;
+
 	}
 	
 	//    [self.tableView beginUpdates];

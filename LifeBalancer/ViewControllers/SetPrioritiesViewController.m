@@ -110,7 +110,7 @@
 	}
 //-	[[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryDetailButton];
 	
-	[[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	//[[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 	
 	if (!role) {
 		return;
@@ -555,9 +555,6 @@
 	}
 	Role *role = rolesarray[checkboxq.indexPath.section];
 	NSSet *taskset = role.tasks;
-	
-	
- 
 	
 	customtextfield *textField = (customtextfield*)[[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].contentView viewWithTag:(NSInteger)checkboxq.indexPath+3];
 	NSLog(@"%ld",(long)textField.tag);
