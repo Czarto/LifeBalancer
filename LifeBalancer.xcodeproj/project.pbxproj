@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AC508121A5C44DC00BB377A /* SelectedTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC508111A5C44DC00BB377A /* SelectedTabBarController.m */; };
 		5E80AA5C17AB84BC0036E6FC /* pro-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E80AA5B17AB84BC0036E6FC /* pro-30.png */; };
 		5E80AA5E17AB84E80036E6FC /* pro-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E80AA5D17AB84E80036E6FC /* pro-40.png */; };
 		5E80AA6017AB85290036E6FC /* star-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E80AA5F17AB85290036E6FC /* star-30.png */; };
@@ -84,6 +85,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AC508101A5C44DC00BB377A /* SelectedTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedTabBarController.h; sourceTree = "<group>"; };
+		1AC508111A5C44DC00BB377A /* SelectedTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedTabBarController.m; sourceTree = "<group>"; };
 		5E80AA5B17AB84BC0036E6FC /* pro-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pro-30.png"; sourceTree = "<group>"; };
 		5E80AA5D17AB84E80036E6FC /* pro-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pro-40.png"; sourceTree = "<group>"; };
 		5E80AA5F17AB85290036E6FC /* star-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-30.png"; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 		A95C3AFB16FAD35800206D0C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1AC508101A5C44DC00BB377A /* SelectedTabBarController.h */,
+				1AC508111A5C44DC00BB377A /* SelectedTabBarController.m */,
 				B17330A91A12912700DFD0F7 /* UTTableViewCell.h */,
 				B17330AA1A12912700DFD0F7 /* UTTableViewCell.m */,
 				A95C3AFC16FAD39600206D0C /* MissionViewController.h */,
@@ -601,6 +606,7 @@
 				CFE63B6F1A252CFE00764F97 /* SWUtilityButtonView.m in Sources */,
 				5EBD813217AA3006002D2B20 /* HomeTempViewController.m in Sources */,
 				5EAA998317AA447B008BC1C5 /* GoalTempViewController.m in Sources */,
+				1AC508121A5C44DC00BB377A /* SelectedTabBarController.m in Sources */,
 				5E8B18AF17B0ECAF0054ED7E /* Goal.m in Sources */,
 				CFE63B761A252CFE00764F97 /* SwipeableCellTableViewCell.m in Sources */,
 				CFE63B6B1A252CFE00764F97 /* SWCellScrollView.m in Sources */,
