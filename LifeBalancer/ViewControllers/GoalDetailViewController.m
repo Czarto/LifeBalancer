@@ -82,9 +82,6 @@
 	self.txtgoalname.delegate = self;
 	UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
 	[self.tableView addGestureRecognizer:singleTap];
-	
-
-	
 }
 - (void) viewWillLayoutSubviews {
 	[super viewWillLayoutSubviews];
@@ -133,8 +130,10 @@
 
 - (IBAction)saveclicked:(id)sender {
 	
-	if (self.txtgoalname.text.length==0) {
-		[[[UIAlertView alloc]initWithTitle:nil message:@"Goal name shouldn't be empty" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+	BOOL containsText = [self.txtgoalname.text rangeOfCharacterFromSet:[NSCharacterSet alphanumericCharacterSet]].location != NSNotFound;
+	if (!containsText) {
+		[self.navigationController popViewControllerAnimated:YES];
+//		[[[UIAlertView alloc]initWithTitle:nil message:@"Goal name shouldn't be empty" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 		return;
 	}
 	

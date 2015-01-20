@@ -45,7 +45,7 @@
 //
 //}
 
-
+/*
 #pragma mark - UITextFieldDelegate
 
 
@@ -184,6 +184,8 @@
 	[self.tableView reloadData];
 	
 }
+ */
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -220,7 +222,7 @@
 	
 	self.tabBarController.tabBar.hidden = NO;
 	self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
-	[self.tableView registerClass:[UMTableViewCell class] forCellReuseIdentifier:@"GoalCelldd"];
+//	[self.tableView registerClass:[UMTableViewCell class] forCellReuseIdentifier:@"GoalCelldd"];
 	//self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(goToHome)];
 }
 
@@ -447,27 +449,31 @@
 	
 	rolecell.delegate = self;
 	
-	rolecell.label.text = [NSString stringWithFormat:@"Section: %ld, Seat: %ld", (long)indexPath.section, (long)indexPath.row];
-	//-
-	customtextfield *textField = [[customtextfield alloc] initWithFrame:CGRectMake(20, 0, 300, rolecell.frame.size.height)];
-	[rolecell.contentView addSubview:textField];
-	
-	textField.indexPath = indexPath;
-	rolecell.delegate = self;
-	textField.delegate = self;
-	
-	//-
+//	rolecell.label.text = [NSString stringWithFormat:@"Section: %ld, Seat: %ld", (long)indexPath.section, (long)indexPath.row];
+//	//-
+//	customtextfield *textField = [[customtextfield alloc] initWithFrame:CGRectMake(20, 0, 300, rolecell.frame.size.height)];
+//	[rolecell.contentView addSubview:textField];
+//	
+//	textField.indexPath = indexPath;
+//	rolecell.delegate = self;
+//	textField.delegate = self;
+//	
+//	//-
 	
 	if (indexPath.row < role.goals.count) {
 		Goal *goal_s = [role.getGoalsByPriority objectAtIndex:indexPath.row];
 		//rolecell.textLabel.text = goal.name;
-		textField.text = goal_s.name;
+		rolecell.label.text = goal_s.name;
+		[rolecell.label setTextColor:[UIColor blackColor]];
+		rolecell.canSwipe = YES;
 		//NSLog(goal_s.name);
 		[rolecell setRightUtilityButtons:[self rightButtons] WithButtonWidth:58.0f];
 		//rolecell.button1.hidden = YES;//!buttonshow;
 		//rolecell.button2.hidden = YES;//!buttonshow;
 	} else {
-		textField.text = @"";
+		rolecell.label.text = @"Add item...";
+		[rolecell.label setTextColor:[UIColor grayColor]];
+		rolecell.canSwipe = NO;
 		//rolecell.button1.hidden = YES;
 		//rolecell.button2.hidden = YES;
 	}
@@ -477,6 +483,7 @@
 	return rolecell;
 }
 
+/*
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSIndexPath *rowToSelect = indexPath;
 	BOOL isEditing = self.editing;
@@ -489,7 +496,7 @@
 	
 	NSLog(@"here?");
 	
-	//	if (/*!self.isEditing*/NO) {
+	//	if (NO) { //!self.isEditing
 	//		rowToSelect = nil;
 	//	}else if (indexPath.row < [rolesarray count]) {
 	//		//role = [rolesarray objectAtIndex:indexPath.row];
@@ -504,6 +511,7 @@
 	//	return rowToSelect;
 	
 }
+*/
 
 #pragma mark - SWTableViewDelegate
 
@@ -614,6 +622,10 @@
 
 - (BOOL)swipeableTableViewCell:(SWTableViewCell *)cell canSwipeToState:(SWCellState)state
 {
+	UMTableViewCell *swCell = (UMTableViewCell*)cell;
+	if(!swCell.canSwipe)
+		return NO;
+	
 	switch (state) {
 		case 1:
 			// set to NO to disable all left utility buttons appearing

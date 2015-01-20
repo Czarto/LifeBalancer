@@ -18,4 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (nonatomic) QRadioButton *radioButton;
+@property (nonatomic, assign) BOOL canSwipe;
+
 @end
