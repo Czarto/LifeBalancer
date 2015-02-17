@@ -230,12 +230,6 @@
 -(void)viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
 	self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
-	
-	if (self.deletedIndexPath) {
-		NSLog(@"should delete %@",self.deletedIndexPath);
-		deleteWithoutConfirmation = YES;
-		
-	}
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -262,6 +256,12 @@
 	
 	
 	// [self performSelector:@selector(execLater) withObject:nil afterDelay:5];
+	
+	if (self.deletedIndexPath) {
+		NSLog(@"should delete %@",self.deletedIndexPath);
+		deleteWithoutConfirmation = YES;
+		[self tableView:self.tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:self.deletedIndexPath];
+	}
 }
 
 -(void)viewWillDisappear:(BOOL)animated
