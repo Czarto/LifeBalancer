@@ -41,12 +41,19 @@
 
 
 @interface GoalDetailViewController ()
+@property (weak, nonatomic) IBOutlet UITableViewCell *deleteButtonTableCell;
 
+/**
+ * A UITextView does not have placeholder capability at the time of this message. We have to fake it, using a 
+ * light gray label that is displayed when there is no text in the text view and hiddne once the user starts typing.
+ * See textViewDidChange and textViewDidEndEditing.
+ */
+@property (weak, nonatomic) IBOutlet UILabel *goalNotePlaceHolderLabel;
 @end
 
 @implementation GoalDetailViewController
 
-@synthesize goal, role, txtGoalNote;
+@synthesize goal, role;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,17 +67,24 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(editCancel)];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(editDone)];
 	self.navigationItem.title = @"Goal Details";
+	
+	self.goalNote.delegate = self;
 	
 	[self.navigationItem setHidesBackButton:YES];
 	if (goal) {
 		self.txtgoalname.text = goal.name;
-		
-		
-		// if (goal.note) {
-		txtGoalNote.text = goal.note;
-		// }
+		self.goalNote.text = goal.note;
+		[self.deleteButtonTableCell setHidden:NO];
+		// If there's already text in the goal note then make sure our fake placeholder is hidden.
+		if (self.goalNote.text.length > 0) {
+			self.goalNotePlaceHolderLabel.hidden = YES;
+		}
+	} else {
+		// Hide the delete button if the user is adding a new detail
+		[self.deleteButtonTableCell setHidden:YES];
 	}
 	
 	UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, self.txtgoalname.frame.size.height)];
@@ -78,15 +92,12 @@
 	self.txtgoalname.leftViewMode = UITextFieldViewModeAlways;
 	
 	self.txtgoalname.text = goal.name;
-	txtGoalNote.delegate = self;
 	self.txtgoalname.delegate = self;
 	UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
 	[self.tableView addGestureRecognizer:singleTap];
 }
 - (void) viewWillLayoutSubviews {
 	[super viewWillLayoutSubviews];
-	
-	txtGoalNote.frame = CGRectMake(0, txtGoalNote.frame.origin.y, 320, [self measureHeight]+16);
 }
 - (void) viewDidLayoutSubviews {
 	[super viewDidLayoutSubviews];
@@ -94,30 +105,22 @@
 }
 -(void)editDone
 {
-	if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Done"]) {
-		[self.txtgoalname resignFirstResponder];
-		self.navigationItem.rightBarButtonItem.title = @"Edit";
-		[self saveclicked:nil];
-	}
-	else
-	{
-		[self.txtgoalname becomeFirstResponder];
-		self.navigationItem.rightBarButtonItem.title = @"Done";
-	}
-	//[self.tableView reloadData];
-	//[self reloadInputViews];
+	[self.txtgoalname resignFirstResponder];
+	[self saveclicked:nil];
+}
+-(void)editCancel
+{
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
 -(void)handleSingleTap:(UIGestureRecognizer *)gestureRecognizer
 {
-	[txtGoalNote resignFirstResponder];
 	[self.txtgoalname resignFirstResponder];
 }
 
@@ -161,7 +164,7 @@
 		}
 		
 		goal.name = self.txtgoalname.text;
-		goal.note = txtGoalNote.text;
+		goal.note = self.goalNote.text;
 		
 		NSError *error = nil;
 		if (![context save:&error]) {
@@ -196,77 +199,14 @@
 
 #pragma mark UITextViewDelegate
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
+- (void)textViewDidChange:(UITextView *)textView
 {
-	//     if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Done"]) {
-	//
-	//     }
-	
-	self.navigationItem.rightBarButtonItem.title = @"Done";
+	self.goalNotePlaceHolderLabel.hidden = ([textView.text length] > 0);
 }
-- (void)textViewDidChangeSelection:(UITextView *)textView {
-	//[textView sizeToFit]; //added
-}
+
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-	//self.navigationItem.rightBarButtonItem.title = @"Edit";
-}
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
-{
-	const char * _char = [text cStringUsingEncoding:NSUTF8StringEncoding];
-	int isBackSpace = strcmp(_char, "\b");
-	
-	if ( [text isEqualToString:@"\n"] || isBackSpace == -8 ) {
-		textView.frame = CGRectMake(0, textView.frame.origin.y, 320, [self measureHeight]+16);
-	}
-	return YES;
-}
-#pragma mark UITextFieldDelegate
-
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-	self.navigationItem.rightBarButtonItem.title = @"Done";
+	self.goalNotePlaceHolderLabel.hidden = ([textView.text length] > 0);
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-	self.navigationItem.rightBarButtonItem.title = @"Edit";
-}
-- (CGFloat)measureHeight
-{
-	if ([self respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)])
-	{
-		CGRect frame = self.txtGoalNote.bounds;
-		CGSize fudgeFactor;
-		// The padding added around the text on iOS6 and iOS7 is different.
-		fudgeFactor = CGSizeMake(10.0, 16.0);
-		
-		frame.size.height -= fudgeFactor.height;
-		frame.size.width -= fudgeFactor.width;
-		
-		NSMutableAttributedString* textToMeasure;
-		if(self.txtGoalNote.attributedText && self.txtGoalNote.attributedText.length > 0){
-			textToMeasure = [[NSMutableAttributedString alloc] initWithAttributedString:self.txtGoalNote.attributedText];
-		}
-		else{
-			textToMeasure = [[NSMutableAttributedString alloc] initWithString:self.txtGoalNote.text];
-			[textToMeasure addAttribute:NSFontAttributeName value:self.txtGoalNote.font range:NSMakeRange(0, textToMeasure.length)];
-		}
-		
-		if ([textToMeasure.string hasSuffix:@"\n"])
-		{
-			[textToMeasure appendAttributedString:[[NSAttributedString alloc] initWithString:@"-" attributes:@{NSFontAttributeName: self.txtGoalNote.font}]];
-		}
-		
-		// NSAttributedString class method: boundingRectWithSize:options:context is
-		// available only on ios7.0 sdk.
-		CGRect size = [textToMeasure boundingRectWithSize:CGSizeMake(CGRectGetWidth(frame), MAXFLOAT)
-												  options:NSStringDrawingUsesLineFragmentOrigin
-												  context:nil];
-		
-		return CGRectGetHeight(size) + fudgeFactor.height;
-	} else {
-		return self.txtGoalNote.contentSize.height;
-	}
-}
 @end
