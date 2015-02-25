@@ -53,11 +53,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	
-	//[self.navigationController setNavigationBarHidden:YES];
 	WeeklyPlaningViewController *wpvc = (WeeklyPlaningViewController *)[segue destinationViewController];
 	wpvc.hidesBottomBarWhenPushed = YES;
-	//destination =  ((MissionViewController *)[[((UITabBarController *)segue.destinationViewController) viewControllers] objectAtIndex:0]);
 	if ([segue.identifier isEqualToString:@"segueToTab1"]) {
 		((MissionViewController *)[[((UITabBarController *)segue.destinationViewController) viewControllers] objectAtIndex:0]).selectedVcIndex = selectedTab;
 	}
@@ -73,10 +70,6 @@
 		if (indexPath.row==0) {
 			vc.shouldBePresentedInEditMode = NO;
 		}
-		//		        else if(indexPath.row ==1)
-		//		        {
-		//		            vc.shouldBePresentedInEditMode = YES;
-		//		        }
 		
 	}
 	
@@ -89,21 +82,14 @@
 	{
 		if (indexPath.row == 0)
 		{
-			//[self.tabBarController setSelectedIndex:1];
 			selectedTab = 0;
-			
-			
 		}
 		else if(indexPath.row == 1)
 		{
-			//[self.tabBarController setSelectedIndex:2];
-			
 			selectedTab = 1;
 		}
 		else if(indexPath.row == 2)
 		{
-			//[self.tabBarController setSelectedIndex:3];
-			
 			selectedTab =2;
 		}
 		[self performSegueWithIdentifier:@"segueToTab1" sender:self];
@@ -116,10 +102,6 @@
 		}
 		else if (indexPath.row==1)
 		{
-			
-			//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Info" message:@"Copy previous week's priorities?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
-			//            [alert show];
-			
 			UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select for New Week" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Previous Week",@"Start With Blank Week", nil];
 			actionSheet.tag = 1;
 			[actionSheet showInView:self.view];
@@ -206,61 +188,6 @@
 	}
 }
 
-#pragma mark UIAlertViewDelegate
-
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    NSLog(@"selected index %d",buttonIndex);
-//    if (buttonIndex==1) {
-//        // YES
-//        SetPrioritiesViewController *spVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SetPriorities"];
-//
-//        // Reseting
-//        for (Role *role in [[[DataAdapter alloc]init]roles]) {
-//            for (Task *task in role.tasks) {
-//                task.isDone = 0;
-//                task.calendarId = nil;
-//            }
-//        }
-//        NSError *error;
-//        AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//        if (![appdelegate.managedObjectContext save:&error]) {
-//            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//            abort();
-//        }
-//
-//        spVC.shouldBePresentedInEditMode = YES;
-//        [self.navigationController pushViewController:spVC animated:YES];
-//    }
-//    else{
-//        //NO
-//        if([self checkforSelectedGoals]){
-//
-//            BOOL permission = YES;
-//
-//            permission = [[[DataAdapter alloc]init]resetPriorities];
-//
-//            if(permission){
-//                [[[DataAdapter alloc]init]reset];
-//                SetPrioritiesViewController *setPrioritiesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SetPriorities"];
-//                setPrioritiesViewController.shouldBePresentedInEditMode = YES;
-//                [self.navigationController pushViewController:setPrioritiesViewController animated:YES];
-//
-//            }
-//
-//        }else
-//        {
-//
-//
-//            SetPrioritiesViewController *setPrioritiesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SetPriorities"];
-//            setPrioritiesViewController.shouldBePresentedInEditMode = YES;
-//            [self.navigationController pushViewController:setPrioritiesViewController animated:YES];
-//
-//
-//        }
-//
-//    }
-//}
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {

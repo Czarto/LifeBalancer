@@ -36,38 +36,7 @@
 #pragma mark - Setup
 
 - (void)initialSetup {
-	/*
-    NSError *error = nil;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mission" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (!(fetchedObjects == nil || fetchedObjects.count == 0)) {
-        return;
-    }
-    
-    
-    Mission *mission = [NSEntityDescription
-                        insertNewObjectForEntityForName:@"Mission"
-                        inManagedObjectContext:managedObjectContext];
-    
-    mission.statement = @"To find happiness, fulfillment, and value in living I will strive to: make a positive difference in the lives of others; continually grow and improve; keep an open mind; and to appologize sincerely when necessary.";
-    
-    NSArray *rolenames = [NSArray arrayWithObjects:@"Physical",@"Mental",@"Spiritual",@"Social",@"Individual",@"Family Member",@"Friend",@"Employee", @"Homeowner", nil];
-   // NSArray *rolenames = [NSArray arrayWithObjects:@"Individual",@"Family Member",@"Friend",@"Employee", @"Homeowner", nil];
-   // NSArray *rolenames = [NSArray arrayWithObjects:nil];
-    
-    for (NSString *name in rolenames) {
-        Role *role = [NSEntityDescription insertNewObjectForEntityForName:@"Role" inManagedObjectContext:managedObjectContext];
-        role.name = name;
-        role.custom = [NSNumber numberWithBool:NO];
-    }
-    
-    if (![managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-	/*/
+
 }
 
 - (NSDictionary*)selectedUniqueAttributes {
@@ -107,7 +76,7 @@
 	CoreDataImporter *importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
 	
 	
-	NSDictionary *attributeDict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:@"To find happiness, fulfillment, and value in living I will strive to: make a positive difference in the lives of others; continually grow and improve; keep an open mind; and to appologize sincerely when necessary."] forKeys:[NSArray arrayWithObject:@"statement"]];
+	NSDictionary *attributeDict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:@"To find happiness, fulfillment and value in living I will strive to make a positive difference in the lives of others; spend more quality time with friends and family; strive for excellence and inspire others; and apologize sincerely when necessary."] forKeys:[NSArray arrayWithObject:@"statement"]];
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
 	NSManagedObject *missionItem = [importer insertBasicObjectInTargetEntity:@"Mission"
 													   targetEntityAttribute:@"statement"
@@ -115,18 +84,11 @@
 															   attributeDict:attributeDict
 																	 context:managedObjectContext];
 	
-	//NSDictionary *role1 = 	[NSDictionary dictionaryWithObject:@"Physical" forKey:@"name"];
 	NSDictionary *role1 = [NSDictionary dictionaryWithObjectsAndKeys:
 						   @"Physical",@"name",
 						   [NSNumber numberWithBool:NO],@"custom",
 						   nil];
-	
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem1 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role1
-//																   context:managedObjectContext];
+
 	
 	NSManagedObject *roleItem1 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role1 contect:managedObjectContext];
 	
@@ -136,12 +98,6 @@
 						   [NSNumber numberWithBool:NO],@"custom",
 						   nil];
 
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem2 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role2
-//																   context:managedObjectContext];
 	NSManagedObject *roleItem2 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role2 contect:managedObjectContext];
 
 	NSDictionary *role3 = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -149,12 +105,6 @@
 						   [NSNumber numberWithBool:NO],@"custom",
 						   nil];
 
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem3 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role3
-//																   context:managedObjectContext];
 	
 	NSManagedObject *roleItem3 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role3 contect:managedObjectContext];
 
@@ -163,71 +113,34 @@
 						   [NSNumber numberWithBool:NO],@"custom",
 						   nil];
 
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem4 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role4
-//																   context:managedObjectContext];
 	
 	NSManagedObject *roleItem4 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role4 contect:managedObjectContext];
 
 	NSMutableDictionary *role5 = [NSMutableDictionary dictionaryWithObject:@"Individual" forKey:@"name"];
 	[role5 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
 	
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem5 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role5
-//																   context:managedObjectContext];
 	
 	NSManagedObject *roleItem5 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role5 contect:managedObjectContext];
 
-	NSMutableDictionary *role6 = [NSMutableDictionary dictionaryWithObject:@"Family Member" forKey:@"name"];
+	NSMutableDictionary *role6 = [NSMutableDictionary dictionaryWithObject:@"Family" forKey:@"name"];
 	[role6 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem6 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role6
-//																   context:managedObjectContext];
 	
 	NSManagedObject *roleItem6 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role6 contect:managedObjectContext];
 
 	NSMutableDictionary *role7 = [NSMutableDictionary dictionaryWithObject:@"Friend" forKey:@"name"];
 	[role7 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
-
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem7 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role7
-//																   context:managedObjectContext];
 	
 	NSManagedObject *roleItem7 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role7 contect:managedObjectContext];
 
 	NSMutableDictionary *role8 = [NSMutableDictionary dictionaryWithObject:@"Employee" forKey:@"name"];
 	[role8 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
 
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem8 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role8
-//																   context:managedObjectContext];
 	
 	NSManagedObject *roleItem8 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role8 contect:managedObjectContext];
 
 	NSMutableDictionary *role9 = [NSMutableDictionary dictionaryWithObject:@"Homeowner" forKey:@"name"];
 	[role9 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
 
-	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
-//	NSManagedObject *roleItem9 = [importer insertBasicObjectInTargetEntity:@"Role"
-//													 targetEntityAttribute:@"name"
-//														sourceXMLAttribute:@"name"
-//															 attributeDict:role9
-//																   context:managedObjectContext];
 	NSManagedObject *roleItem9 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role9 contect:managedObjectContext];
 
 	
@@ -245,39 +158,6 @@
 	[Faulter faultObjectWithID:roleItem8.objectID inContext:managedObjectContext];
 	[Faulter faultObjectWithID:roleItem9.objectID inContext:managedObjectContext];
 	
-	/*
-	NSLog(@"INitial setup 2 is called");
-	 NSError *error = nil;
-	 NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	 NSEntityDescription *entity = [NSEntityDescription entityForName:@"Mission" inManagedObjectContext:managedObjectContext];
-	 [fetchRequest setEntity:entity];
-	 
-	 NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-	 if (!(fetchedObjects == nil || fetchedObjects.count == 0)) {
-		 return;
-	 }
-	 
-	 
-	 Mission *mission = [NSEntityDescription
-	 insertNewObjectForEntityForName:@"Mission"
-	 inManagedObjectContext:managedObjectContext];
-	 
-	 mission.statement = @"To find happiness, fulfillment, and value in living I will strive to: make a positive difference in the lives of others; continually grow and improve; keep an open mind; and to appologize sincerely when necessary.";
-	 
-	 NSArray *rolenames = [NSArray arrayWithObjects:@"Physical",@"Mental",@"Spiritual",@"Social",@"Individual",@"Family Member",@"Friend",@"Employee", @"Homeowner", nil];
-	 // NSArray *rolenames = [NSArray arrayWithObjects:@"Individual",@"Family Member",@"Friend",@"Employee", @"Homeowner", nil];
-	 // NSArray *rolenames = [NSArray arrayWithObjects:nil];
-	 
-	 for (NSString *name in rolenames) {
-	 Role *role = [NSEntityDescription insertNewObjectForEntityForName:@"Role" inManagedObjectContext:managedObjectContext];
-	 role.name = name;
-	 role.custom = [NSNumber numberWithBool:NO];
-	 }
-	 
-	 if (![managedObjectContext save:&error]) {
-		 NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-	 }
-	 /*/
 }
 
 #pragma mark - Mission
