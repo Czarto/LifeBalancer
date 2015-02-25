@@ -72,11 +72,9 @@
 		CFE63B771A252CFE00764F97 /* UMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE63B691A252CFE00764F97 /* UMTableViewCell.m */; };
 		EC1B44DF17155C0F00677C18 /* UIActionSheet+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B44DC17155C0F00677C18 /* UIActionSheet+BlockExtensions.m */; };
 		EC1B44E017155C0F00677C18 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B44DE17155C0F00677C18 /* UIAlertView+BlockExtensions.m */; };
-		EC9965C51716AFB9007DCFEC /* SetReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9965C41716AFB9007DCFEC /* SetReminderViewController.m */; };
 		EC9966001716FFC5007DCFEC /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9965FF1716FFC5007DCFEC /* EventKitUI.framework */; };
 		ECB71485170AAC4700ED52A1 /* WeeklyPlaningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB71484170AAC4700ED52A1 /* WeeklyPlaningViewController.m */; };
 		ECCF3835170D35BD002D7F37 /* SchedulePrioritiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCF3834170D35BD002D7F37 /* SchedulePrioritiesViewController.m */; };
-		ECCF3838170D5111002D7F37 /* ScheduleTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCF3837170D5111002D7F37 /* ScheduleTaskViewController.m */; };
 		ECD7B834170E976300044351 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD7B833170E976300044351 /* EventKit.framework */; };
 		ECF3E9A8171942E1007A23F3 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3E9A7171942E1007A23F3 /* Role.m */; };
 		ECF3E9AE1719449B007A23F3 /* SetPrioritiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3E9AD1719449B007A23F3 /* SetPrioritiesViewController.m */; };
@@ -188,15 +186,11 @@
 		EC1B44DC17155C0F00677C18 /* UIActionSheet+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+BlockExtensions.m"; sourceTree = "<group>"; };
 		EC1B44DD17155C0F00677C18 /* UIAlertView+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockExtensions.h"; sourceTree = "<group>"; };
 		EC1B44DE17155C0F00677C18 /* UIAlertView+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+BlockExtensions.m"; sourceTree = "<group>"; };
-		EC9965C31716AFB8007DCFEC /* SetReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetReminderViewController.h; sourceTree = "<group>"; };
-		EC9965C41716AFB9007DCFEC /* SetReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetReminderViewController.m; sourceTree = "<group>"; };
 		EC9965FF1716FFC5007DCFEC /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		ECB71483170AAC4700ED52A1 /* WeeklyPlaningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyPlaningViewController.h; sourceTree = "<group>"; };
 		ECB71484170AAC4700ED52A1 /* WeeklyPlaningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyPlaningViewController.m; sourceTree = "<group>"; };
 		ECCF3833170D35BD002D7F37 /* SchedulePrioritiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchedulePrioritiesViewController.h; sourceTree = "<group>"; };
 		ECCF3834170D35BD002D7F37 /* SchedulePrioritiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchedulePrioritiesViewController.m; sourceTree = "<group>"; };
-		ECCF3836170D5111002D7F37 /* ScheduleTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTaskViewController.h; sourceTree = "<group>"; };
-		ECCF3837170D5111002D7F37 /* ScheduleTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTaskViewController.m; sourceTree = "<group>"; };
 		ECD7B833170E976300044351 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		ECF3E9A6171942E1007A23F3 /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Role.h; sourceTree = "<group>"; };
 		ECF3E9A7171942E1007A23F3 /* Role.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Role.m; sourceTree = "<group>"; };
@@ -329,10 +323,6 @@
 				ECB71484170AAC4700ED52A1 /* WeeklyPlaningViewController.m */,
 				ECCF3833170D35BD002D7F37 /* SchedulePrioritiesViewController.h */,
 				ECCF3834170D35BD002D7F37 /* SchedulePrioritiesViewController.m */,
-				ECCF3836170D5111002D7F37 /* ScheduleTaskViewController.h */,
-				ECCF3837170D5111002D7F37 /* ScheduleTaskViewController.m */,
-				EC9965C31716AFB8007DCFEC /* SetReminderViewController.h */,
-				EC9965C41716AFB9007DCFEC /* SetReminderViewController.m */,
 				ECF3E9AC1719449B007A23F3 /* SetPrioritiesViewController.h */,
 				ECF3E9AD1719449B007A23F3 /* SetPrioritiesViewController.m */,
 				B17330A61A121E9600DFD0F7 /* CCustomButton.h */,
@@ -591,11 +581,9 @@
 				B1B0C59D1A0FF3D8006194F7 /* customtextfield.m in Sources */,
 				ECCF3835170D35BD002D7F37 /* SchedulePrioritiesViewController.m in Sources */,
 				82756A09198EB75E0088C272 /* Faulter.m in Sources */,
-				ECCF3838170D5111002D7F37 /* ScheduleTaskViewController.m in Sources */,
 				82756A06198EB6640088C272 /* Deduplicator.m in Sources */,
 				EC1B44DF17155C0F00677C18 /* UIActionSheet+BlockExtensions.m in Sources */,
 				EC1B44E017155C0F00677C18 /* UIAlertView+BlockExtensions.m in Sources */,
-				EC9965C51716AFB9007DCFEC /* SetReminderViewController.m in Sources */,
 				ECF3E9A8171942E1007A23F3 /* Role.m in Sources */,
 				B17330A81A121E9600DFD0F7 /* CCustomButton.m in Sources */,
 				ECF3E9AE1719449B007A23F3 /* SetPrioritiesViewController.m in Sources */,
