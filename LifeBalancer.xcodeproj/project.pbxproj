@@ -25,7 +25,7 @@
 		6E55749C1954FCB80012E1BB /* splash-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749B1954FCB80012E1BB /* splash-640x1136.png */; };
 		6E55749E1954FCEC0012E1BB /* splash-640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749D1954FCEB0012E1BB /* splash-640x960.png */; };
 		6E5574A01954FEA60012E1BB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E55749F1954FEA60012E1BB /* Default-568h@2x.png */; };
-		6EAD1B9719CF50C0005A8663 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAD1B9619CF50C0005A8663 /* CloudKit.framework */; };
+		6EAD1B9719CF50C0005A8663 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAD1B9619CF50C0005A8663 /* CloudKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8205AD091992B27F00981C7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8205AD081992B27F00981C7E /* MBProgressHUD.m */; };
 		82420891198EC90C00943C32 /* CoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82420890198EC90C00943C32 /* CoreDataImporter.m */; };
 		82756A06198EB6640088C272 /* Deduplicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 82756A04198EB6640088C272 /* Deduplicator.m */; };
