@@ -24,7 +24,9 @@
 	NSArray *rolesarray;
 	SetPrioritiesDetailViewController *nextViewController;
 	customtextfield *currenttextField;
+	BOOL isKeyboard;
 }
+
 @property Task* task;
 @end
 
@@ -34,7 +36,6 @@
 
 - (void)viewDidLoad
 {
-	
 	[super viewDidLoad];
 	self.tabBar.delegate = self;
 	[self.tabBar setSelectedItem:self.tabBarItem1];
@@ -43,6 +44,7 @@
 	self.parentViewController.navigationItem.rightBarButtonItem = nil;
 	[self setEditing:YES animated:YES];
 	self.view.backgroundColor = [UIColor whiteColor];
+	isKeyboard = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -65,6 +67,12 @@
 {
 	self.parentViewController.navigationItem.title = @"Goal";
 	[super viewWillDisappear:animated];
+	
+	if(isKeyboard) {
+		UITextField *textField = [(UTTableViewCell*)self.tableView.visibleCells.firstObject textfield];
+		[textField becomeFirstResponder];
+		[textField resignFirstResponder];
+	}
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -299,6 +307,7 @@
 }
 
 - (void)keyboardWillShowNotification:(NSNotification*)notification {
+	isKeyboard = YES;
 	CGRect endFrame;
 	[[[notification userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&endFrame];
 	endFrame = [self.view convertRect:endFrame fromView:nil];
@@ -309,6 +318,7 @@
 }
 
 - (void)keyboardWillHideNotification:(NSNotification*)notification {
+	isKeyboard = NO;
 	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
