@@ -24,51 +24,76 @@
 	NSArray *rolesarray;
 	SetPrioritiesDetailViewController *nextViewController;
 	customtextfield *currenttextField;
+	BOOL isKeyboard;
 }
+
 @property Task* task;
 @end
 
 @implementation SetPrioritiesViewController
 @synthesize deletedIndexPath;
 @synthesize task;
-//- (id)initWithStyle:(UITableViewStyle)style
-//{
-//    self = [super initWithStyle:style];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad
 {
-	
 	[super viewDidLoad];
 	self.tabBar.delegate = self;
 	[self.tabBar setSelectedItem:self.tabBarItem1];
 	self.navigationItem.hidesBackButton=NO;
- 	[self.navigationController setToolbarHidden:YES];
+	[self.navigationController setToolbarHidden:YES];
 	self.parentViewController.navigationItem.rightBarButtonItem = nil;
 	[self setEditing:YES animated:YES];
 	self.view.backgroundColor = [UIColor whiteColor];
-	// Do any additional setup after loading the view, typically from a nib.
-	
+	isKeyboard = NO;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	self.parentViewController.navigationItem.title = @"Set Priorities";
+	[self loadroles];
+	if (!self.editing) {
+		
+		if (self.shouldBePresentedInEditMode)
+		{
+			
+			[self.tableView setEditing:YES animated:YES];
+			[self setEditing:YES];
+		}
+	}
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+	self.parentViewController.navigationItem.title = @"Goal";
+	[super viewWillDisappear:animated];
+	
+	if(isKeyboard) {
+		UITextField *textField = [(UTTableViewCell*)self.tableView.visibleCells.firstObject textfield];
+		[textField becomeFirstResponder];
+		[textField resignFirstResponder];
+	}
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
 	self.parentViewController.navigationItem.rightBarButtonItem = nil;
-	
+	[self addNotificationsObserver];
 }
+
+- (void)viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
+	[self removeNotificationsObserver];
+}
+
 -(void)didSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId{
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:(NSIndexPath*)groupId];
 	cell.Selected = true;
 	cell.backgroundColor = [UIColor whiteColor];
-	
 }
 
 -(void)didUnSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId{
-	
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:(NSIndexPath*)groupId];
 	cell.Selected = false;
 	cell.backgroundColor = [UIColor whiteColor];
@@ -86,19 +111,19 @@
 
 -(void)checkboxSelected:(id)sender{
 	CCustomButton* checkboxq = (CCustomButton*)sender;
-		if([checkboxq isSelected]==YES)
+	if([checkboxq isSelected]==YES)
 	{
 		[checkboxq setSelected:NO];
 		[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].backgroundColor = [UIColor whiteColor];
-
+		
 	}
 	else{
 		[checkboxq setSelected:YES];
 		[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].backgroundColor = [UIColor whiteColor];
 	}
-    Role *role = rolesarray[checkboxq.indexPath.section];
+	Role *role = rolesarray[checkboxq.indexPath.section];
 	NSSet *taskset = role.tasks;
-
+	
 	customtextfield *textField = (customtextfield*)[[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].contentView viewWithTag:(NSInteger)checkboxq.indexPath+3];
 	NSLog(@"%ld",(long)textField.tag);
 	NSLog(@"%@",textField.text);
@@ -108,9 +133,6 @@
 			self.task = tasktemp;
 		}
 	}
-//-	[[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryDetailButton];
-	
-	//[[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 	
 	if (!role) {
 		return;
@@ -125,18 +147,14 @@
 			[role addTasksObject:task];
 		}
 		task.name = textField.text;
-	
-	//	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		
 		if (checkboxq.isSelected == YES) {
 			task.isDone = [NSNumber numberWithInt:1];
-			//task.calendarId = (NSString*)gregorian;
 			[checkboxq setSelected:NO];
 		}else{
 			task.isDone = 0;
-			//task.calendarId = nil;
 			[checkboxq setSelected:YES];
 		}
-		//goal.note = txtGoalNote.text;
 		NSError *error = nil;
 		if (![context save:&error]) {
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -149,67 +167,17 @@
 		[self.tableView reloadData];
 	}
 	[self viewWillAppear:NO];
- /**/
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-	[super viewWillAppear:animated];
-	self.parentViewController.navigationItem.title = @"Set Priorities";
-	
-	//Create bar buttons
-	
-	//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Home"
-	//                                                                   style: UIBarButtonItemStyleBordered
-	//                                                                  target: self
-	//                                                                  action: @selector(back)];
-
-	// self.toolbarItems = [ NSArray arrayWithObjects: backButton,flexibleSpace,nextButton,nil];
-	//    self.navigationItem.leftBarButtonItem = backButton;
-	[self loadroles];
-	if (!self.editing) {
-		
-		if (self.shouldBePresentedInEditMode)
-		{
-			
-			[self.tableView setEditing:YES animated:YES];
-			[self setEditing:YES];
-			
-		}
-	}
-	
-}
-
-
--(void)viewWillDisappear:(BOOL)animated
-{
-	self.parentViewController.navigationItem.title = @"Goal";
-	[super viewWillDisappear:animated];
-	
-//	[self.tabBar setSelectedItem:nil];
-	//[self.navigationController popToRootViewControllerAnimated:YES];
-	
 }
 
 - (void)loadroles
 {
-	
 	rolesarray = [[[DataAdapter alloc]init]roles];
 	
 	[self.tableView reloadData];
-	
-	
-	//if([self checkforSelectedGoals]){
-		
-	//	[[self.toolbarItems objectAtIndex: 2] setEnabled:(YES)];
-		
-//	}else{
-		
-		[[self.toolbarItems objectAtIndex: 2] setEnabled:(NO)];
-		
-//	}
+	[[self.toolbarItems objectAtIndex: 2] setEnabled:(NO)];
 	
 }
+
 #pragma mark - UITextFieldDelegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -217,22 +185,24 @@
 	self.parentViewController.navigationItem.rightBarButtonItem = nil;
 	return YES;
 }
+
 -(BOOL)textField:(customtextfield *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 	return YES;
 }
+
 - (void)textFieldDidBeginEditing:(customtextfield *)textField{
-
+	
 	self.parentViewController.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-	if ([UIScreen mainScreen].bounds.size.height>480) {
-		if ([self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y > 216) {
-			[self.tableView setContentOffset:CGPointMake(0, [self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y - 216)];
+	
+		if ([UIScreen mainScreen].bounds.size.height>480) {
+			if ([self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y > 216) {
+				[self.tableView setContentOffset:CGPointMake(0, [self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y - 216)];
+			}
+		}else{
+			if ([self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y > 128) {
+				[self.tableView setContentOffset:CGPointMake(0, [self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y - 128)];
+			}
 		}
-	}else{
-		if ([self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y > 128) {
-			[self.tableView setContentOffset:CGPointMake(0, [self.tableView cellForRowAtIndexPath:textField.indexPath].frame.origin.y - 128)];
-		}
-	}
 	self.navigationItem.rightBarButtonItem.title = @"Done";
 	customtextfield* atextField = (customtextfield*)textField;
 	currenttextField = atextField;
@@ -248,13 +218,11 @@
 	}
 	[[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
 }
+
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
 	nextViewController = nil;
 	
 	nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GoalDetailViewController"];
-	//nextViewController.goalVC = self;
-	//nextViewController.currentIndexPath = indexPath;
-	
 	self.deletedIndexPath = nil;
 	
 	Role *role = rolesarray[indexPath.section];
@@ -272,14 +240,13 @@
 	}
 	
 	
-}//tableView:accessoryButtonTappedForRowWithIndexPath:
+}
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
 	
 	customtextfield* atextField = (customtextfield*)textField;
 	NSIndexPath *indexPath = atextField.indexPath;
 	[[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
-	//[[self.tableView cellForRowAtIndexPath:indexPath].contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 	[self.tableView reloadData];
 	self.navigationItem.rightBarButtonItem.title = @"Edit";
 	if (textField.text.length==0) {
@@ -314,7 +281,6 @@
 	}
 	
 	task.name = textField.text;
-	//goal.note = txtGoalNote.text;
 	
 	NSError *error = nil;
 	if (![context save:&error]) {
@@ -327,22 +293,41 @@
 	
 }
 
+#pragma mark -
+#pragma mark Keyboard Notifications
 
-- (void)didReceiveMemoryWarning
-{
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
+- (void)addNotificationsObserver {
+	NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
+	[notifCenter addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardDidShowNotification object:nil];
+	[notifCenter addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (void)removeNotificationsObserver {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)keyboardWillShowNotification:(NSNotification*)notification {
+	isKeyboard = YES;
+	CGRect endFrame;
+	[[[notification userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&endFrame];
+	endFrame = [self.view convertRect:endFrame fromView:nil];
+	
+	int inset = self.view.bounds.size.height - endFrame.origin.y - 44.0;
+	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, inset < 0 ? 0 : inset, 0);
+	self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+}
+
+- (void)keyboardWillHideNotification:(NSNotification*)notification {
+	isKeyboard = NO;
+	self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+	self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+}
 
 #pragma mark -
 #pragma mark Editing
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-	
 	[super setEditing:editing animated:animated];
-	
-	//[self.tableView beginUpdates];
 	
 	for (int rolecount=0; rolecount < rolesarray.count; rolecount++) {
 		Role *role = rolesarray[rolecount];
@@ -352,7 +337,7 @@
 				[self.tableView insertRowsAtIndexPaths:rolesInsertIndexPath withRowAnimation:UITableViewRowAnimationTop];
 				
 				[self.tableView endEditing:YES];
-
+				
 			} else
 			{
 				if ([self.parentViewController.navigationItem.title isEqualToString:@"Goal"]) {
@@ -361,7 +346,6 @@
 					
 				}else{
 					[self textFieldDidEndEditing:self->currenttextField];
-					//[self.tableView deleteRowsAtIndexPaths:rolesInsertIndexPath withRowAnimation:UITableViewRowAnimationTop];
 					[super setEditing:YES animated:YES];
 					[self.tableView reloadData];
 				}
@@ -371,7 +355,6 @@
 		}
 	}
 	self.parentViewController.navigationItem.rightBarButtonItem = nil;
-	//[self.tableView endUpdates];
 }
 
 
@@ -394,8 +377,6 @@
 		rows++;
 	}
 	
-	
-	
 	return rows;
 }
 
@@ -407,9 +388,6 @@
 - (NSArray *)rightButtons
 {
 	NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-//	[rightUtilityButtons sw_addUtilityButtonWithColor:
-//	 [UIColor colorWithRed:0.2f green:0.4f blue:0.9f alpha:1.0]
-//												title:@"More"];
 	[rightUtilityButtons sw_addUtilityButtonWithColor:
 	 [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
 												title:@"Delete"];
@@ -418,7 +396,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+	
 	NSInteger rows = 0;
 	UTTableViewCell *rolecell = [tableView dequeueReusableCellWithIdentifier:@"SetPriorityCell"];
 	if (rolecell != nil) {
@@ -433,8 +411,8 @@
 	
 	rolecell.textfield.indexPath = indexPath;
 	rolecell.textfield.delegate = self;
-    rolecell.delegate = self;
-
+	rolecell.delegate = self;
+	
 	rows = [role.tasks count];
 	if (rows>=4) {
 		self.isPink = YES;
@@ -490,7 +468,6 @@
 }
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
 {
-	//[self textFieldDidEndEditing:currenttextField];
 	switch (index) {
 		case 0:
 		{
@@ -505,7 +482,6 @@
 				deleteWithoutConfirmation = YES;
 				[self tableView:self.tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:cellIndexPath];
 			}
-			//[self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
 			break;
 		}
 		default:
@@ -565,7 +541,6 @@
 			self.task = tasktemp;
 		}
 	}
-	//-	[[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryDetailButton];
 	
 	[[self.tableView cellForRowAtIndexPath:checkboxq.indexPath].contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 	
@@ -584,17 +559,13 @@
 		}
 		task.name = textField.text;
 		
-		//	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 		if (checkboxq.isSelected == YES) {
 			task.isDone = [NSNumber numberWithInt:1];
-			//task.calendarId = (NSString*)gregorian;
 			[checkboxq setSelected:NO];
 		}else{
 			task.isDone = 0;
-			//task.calendarId = nil;
 			[checkboxq setSelected:YES];
 		}
-		//goal.note = txtGoalNote.text;
 		NSError *error = nil;
 		if (![context save:&error]) {
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -631,7 +602,6 @@
 		Role *role = rolesarray[indexPath.section];
 		DataAdapter *da = [[DataAdapter alloc]init];
 		NSMutableArray *tasksarray = [NSMutableArray arrayWithArray:[da getTasksByPriority:role.objectID]];
-		//Task *task = [tasksarray objectAtIndex:indexPath.row];
 		
 		deleteWithoutConfirmation = NO;
 		if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -676,94 +646,12 @@
 		
 		if (editingStyle == UITableViewCellEditingStyleDelete) {
 			
-			//		BOOL permission = YES;
-			//			if (indexPath.row < [rolesarray count]) {
-			//				Role *role = [rolesarray objectAtIndex:indexPath.row];
-			//				DataAdapter *db = [[DataAdapter alloc]init];
-			//				NSMutableArray *goalsarray = [NSMutableArray arrayWithArray:[db tasksSavedInTheCalender:[role objectID]]];
-			//				if(goalsarray.count>0) {
-			//					permission = [[[DataAdapter alloc]init]deleteCalenderEvents:role.objectID];
-			//				}
-			//				if(permission){
-			//					[goal.managedObjectContext deleteObject:goal];
-			//					// Save the context.
-			//					NSError *error;
-			//					if (![role.managedObjectContext save:&error]) {
-			//						NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-			//						abort();
-			//					}
-			//				}
-			//				[self loadroles];
-			//			}
-			//
-			//
 		}
 		else if (editingStyle == UITableViewCellEditingStyleInsert) {
 			[self tableView:tableView didSelectRowAtIndexPath:indexPath];
 		}
-		
-		
-		
 	}
-//	if (editingStyle == UITableViewCellEditingStyleDelete) {
-//		
-//		
-//		[[[UIAlertView alloc]initWithTitle:@"Confirmation"
-//								   message:@"Do you want to delete ?"
-//						   completionBlock:^(NSUInteger buttonIndex, UIAlertView *alertView) {
-//							   if (buttonIndex == 1) {
-//								   BOOL permission = YES;
-//								   Role *role = rolesarray[indexPath.section];
-//								   DataAdapter *da = [[DataAdapter alloc]init];
-//								   
-//								   if (indexPath.row < role.tasks.count) {
-//									   NSMutableArray *tasksarray = [NSMutableArray arrayWithArray:[da getTasksByPriority:role.objectID]];
-//									   
-//									   Task * selectedTask = [tasksarray objectAtIndex:indexPath.row];
-//									   
-//									   if(selectedTask.calendarId != nil &&![selectedTask.calendarId isEqualToString:@""]) {
-//										   
-//										   permission = [[[DataAdapter alloc]init]deleteCalenderEvent:selectedTask];
-//									   }
-//									   
-//									   if(permission){
-//										   
-//										   
-//										   [role removeTasksObject:selectedTask];
-//										   [selectedTask.managedObjectContext deleteObject:selectedTask];
-//										   
-//										   [tasksarray removeObjectAtIndex:indexPath.row];
-//										   
-//										   for (int order=0; order<tasksarray.count; order++) {
-//											   Task *task = [tasksarray objectAtIndex:order];
-//											   task.priority = [NSNumber numberWithInt:order];
-//										   }
-//										   
-//										   // Save the context.
-//										   NSError *error;
-//										   if (![role.managedObjectContext save:&error]) {
-//											   
-//											   NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//											   abort();
-//										   }
-//									   }
-//									   [self loadroles];
-//								   }
-//							   }
-//						   }
-//						 cancelButtonTitle:@"NO"
-//						 otherButtonTitles:@"YES",nil] show];
-//		
-//		
-//		
-//		
-//	}
-//	else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//		[self tableView:tableView didSelectRowAtIndexPath:indexPath];
-//	}
 }
-
-
 
 #pragma mark -
 #pragma mark Moving rows
@@ -851,7 +739,6 @@
 	if (item.tag==1) {
 		self.tabBarController.selectedIndex = 2;
 		SetPrioritiesViewController *gVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SetPriorities"];
-		//[self.navigationController popToRootViewControllerAnimated:YES];
 		[self.navigationController pushViewController:gVc animated:YES];
 	}
 	else  if (item.tag==3) {
@@ -860,7 +747,6 @@
 	else if(item.tag==4)
 	{
 		self.tabBarController.selectedIndex = 1;
-		//[self.navigationController popToRootViewControllerAnimated:YES];
 		GoalTempViewController *gVc = [self.storyboard instantiateViewControllerWithIdentifier:@"tempGoalVC"];
 		[self.navigationController pushViewController:gVc animated:NO];
 	}
