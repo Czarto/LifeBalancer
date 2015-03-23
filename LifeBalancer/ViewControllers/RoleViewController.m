@@ -235,7 +235,7 @@
 	//[self.tableView reloadData];
 	
 	if(!editing) {
-		
+		[self updateRolesSortID];
 		for(int i=0; i<rolesarray.count; i++) {
 			Role *objRole = [rolesarray objectAtIndex:i];
 			if(objRole.hasChanges) {
@@ -272,6 +272,14 @@
 	//	}
 	//	[self.tableView endUpdates];
 	//[self.tableView reloadData];
+}
+
+- (void)updateRolesSortID {
+	for(int i = 0; i < rolesarray.count; i++) {
+		Role *srole = rolesarray[i];
+		if([srole.sortID integerValue] != i+4)
+			srole.sortID = @(i+4);
+	}
 }
 
 #pragma mark -
@@ -454,6 +462,10 @@
 	}
 }
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSUInteger rolesCount = [rolesarray count];
+	if (indexPath.row < rolesCount)
+		return YES;
+	
 	return NO;
 }
 

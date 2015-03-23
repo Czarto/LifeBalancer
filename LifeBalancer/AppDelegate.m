@@ -197,15 +197,18 @@
 		[options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
 		[options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
 		[options setObject:iCloudEnabledAppID            forKey:NSPersistentStoreUbiquitousContentNameKey];
-		[options setObject:iCloudLogsPath                forKey:NSPersistentStoreUbiquitousContentURLKey];
+//		[options setObject:iCloudLogsPath                forKey:NSPersistentStoreUbiquitousContentURLKey];
 		
 		[psc lock];
 		
+		NSError *error;
 		[psc addPersistentStoreWithType:NSSQLiteStoreType
 						  configuration:nil
 									URL:[NSURL fileURLWithPath:iCloudData]
 								options:options
-								  error:nil];
+								  error:&error];
+		if(error)
+			NSLog(@"Error %@", error);
 		
 		[psc unlock];
 		//check weather to load initial data or not
@@ -219,7 +222,7 @@
 		
 		NSLog(@"iCloud is NOT working - using a local store");
 		NSMutableDictionary *options = [NSMutableDictionary dictionary];
-		[options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+		[options setObject:[NSNumber numberWithBool:YES] forKey:NSPersistentStoreUbiquitousContentNameKey];
 		[options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
 		
 		[psc lock];
