@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSNumber * custom;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * sortID;
 @property (nonatomic, retain) NSSet *goals;
 @property (nonatomic, retain) NSSet *tasks;
 

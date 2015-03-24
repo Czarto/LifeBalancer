@@ -83,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AB14B9A1ABC814200E1E575 /* lifebalancer 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "lifebalancer 3.xcdatamodel"; sourceTree = "<group>"; };
 		1AC508101A5C44DC00BB377A /* SelectedTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedTabBarController.h; sourceTree = "<group>"; };
 		1AC508111A5C44DC00BB377A /* SelectedTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedTabBarController.m; sourceTree = "<group>"; };
 		5E80AA5B17AB84BC0036E6FC /* pro-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pro-30.png"; sourceTree = "<group>"; };
@@ -754,10 +755,11 @@
 		A91F9DD816FC2D2A005160AB /* lifebalancer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1AB14B9A1ABC814200E1E575 /* lifebalancer 3.xcdatamodel */,
 				5E8B18B017B0EE7B0054ED7E /* lifebalancer 2.xcdatamodel */,
 				A91F9DD916FC2D2A005160AB /* lifebalancer.xcdatamodel */,
 			);
-			currentVersion = 5E8B18B017B0EE7B0054ED7E /* lifebalancer 2.xcdatamodel */;
+			currentVersion = 1AB14B9A1ABC814200E1E575 /* lifebalancer 3.xcdatamodel */;
 			path = lifebalancer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
