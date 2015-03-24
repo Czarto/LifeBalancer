@@ -222,7 +222,7 @@
 		
 		NSLog(@"iCloud is NOT working - using a local store");
 		NSMutableDictionary *options = [NSMutableDictionary dictionary];
-		[options setObject:[NSNumber numberWithBool:YES] forKey:NSPersistentStoreUbiquitousContentNameKey];
+		[options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
 		[options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
 		
 		[psc lock];
