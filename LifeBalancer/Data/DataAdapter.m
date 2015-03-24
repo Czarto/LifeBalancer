@@ -188,10 +188,15 @@
     [fetchRequest setEntity:[NSEntityDescription entityForName:@"Role"
                                         inManagedObjectContext:managedObjectContext]];
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"custom" ascending:YES];
-	[fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+	NSSortDescriptor *orderIDSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortID" ascending:YES];
+	[fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, orderIDSortDescriptor, nil]];
 
-    NSError *error;
-    return [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	NSError *error;
+	NSArray *roles = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	[self checkRolesSorting:roles];
+	if (error)
+		NSLog(@"Error %@", error);
+    return roles;
 }
 -(NSArray*)customRoles
 {
@@ -199,11 +204,33 @@
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	[fetchRequest setEntity:[NSEntityDescription entityForName:@"Role"
 										inManagedObjectContext:managedObjectContext]];
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"custom" ascending:YES];
-	[fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+	NSSortDescriptor *customSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"custom" ascending:YES];
+	NSSortDescriptor *orderIDSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortID" ascending:YES];
+	[fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:customSortDescriptor,orderIDSortDescriptor, nil]];
 	
 	NSError *error;
-	return [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	NSArray *roles = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	[self checkRolesSorting:roles];
+	if (error)
+		NSLog(@"Error %@", error);
+	return roles;
+}
+
+-(void)checkRolesSorting:(NSArray*)roles {
+	BOOL changes = NO;
+	for(int i = 0; i < roles.count; i++) {
+		Role *role = roles[i];
+		if(role.sortID == nil) {
+			role.sortID = @(i);
+			changes = YES;
+		}
+	}
+	if(changes) {
+		NSError *error;
+		[managedObjectContext save:&error];
+		if(error)
+			NSLog(@"Error %@", error);
+	}
 }
 
 #pragma mark - set Priorities

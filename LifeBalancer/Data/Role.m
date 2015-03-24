@@ -14,6 +14,7 @@
 
 @dynamic custom;
 @dynamic name;
+@dynamic sortID;
 @dynamic goals;
 @dynamic tasks;
 
