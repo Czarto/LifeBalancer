@@ -251,17 +251,17 @@
 
 -(void)removeDuplicates
 {
-	NSUbiquitousKeyValueStore *kvStore = [NSUbiquitousKeyValueStore defaultStore];
-	[kvStore synchronize];
-	if (![kvStore boolForKey:@"SEEDED_DATA"])
-	{
-		//sync data
+//	NSUbiquitousKeyValueStore *kvStore = [NSUbiquitousKeyValueStore defaultStore];
+//	[kvStore synchronize];
+//	if (![kvStore boolForKey:@"SEEDED_DATA"])
+//	{
+//		//sync data
 		[[[DataAdapter alloc] init] initialSetup2];
-		
-		//seed data
-		[kvStore setBool:YES forKey:@"SEEDED_DATA"];
-		[kvStore synchronize];
-	}
+//		
+//		//seed data
+//		[kvStore setBool:YES forKey:@"SEEDED_DATA"];
+//		[kvStore synchronize];
+//	}
 	
 	[Deduplicator deDuplicateEntityWithName:@"Role" withUniqueAttributeName:@"name" withImportContext:__managedObjectContext];
 	dispatch_async(dispatch_get_main_queue(), ^{

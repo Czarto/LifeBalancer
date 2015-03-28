@@ -68,7 +68,7 @@
     [fetchRequest setEntity:entity];
     
     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (!(fetchedObjects == nil || fetchedObjects.count == 0)) {
+    if (fetchedObjects.count > 0) {
         return;
     }
 
@@ -170,7 +170,12 @@
                                               inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError *error;
-    return [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	NSArray *missions = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	if(error) {
+		NSLog(@"Error %@", error);
+	}
+	
+	return missions;
 }
 
 #pragma mark - Roles
