@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1510" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Goal" representedClassName="Goal" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,9 +7,11 @@
         <relationship name="role" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Role" inverseName="goals" inverseEntity="Role" syncable="YES"/>
     </entity>
     <entity name="Mission" representedClassName="Mission" syncable="YES">
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="statement" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Role" representedClassName="Role" syncable="YES">
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="custom" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sortID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -25,8 +27,8 @@
     </entity>
     <elements>
         <element name="Goal" positionX="189" positionY="-108" width="128" height="103"/>
-        <element name="Mission" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="Role" positionX="457" positionY="270" width="128" height="120"/>
+        <element name="Mission" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Role" positionX="457" positionY="270" width="128" height="135"/>
         <element name="Task" positionX="135" positionY="306" width="128" height="120"/>
     </elements>
 </model>

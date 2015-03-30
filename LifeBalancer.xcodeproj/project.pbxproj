@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AC508121A5C44DC00BB377A /* SelectedTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC508111A5C44DC00BB377A /* SelectedTabBarController.m */; };
+		1AC9EAA11AC96D13002CF0E8 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9EAA01AC96D13002CF0E8 /* Common.m */; };
 		5E80AA5C17AB84BC0036E6FC /* pro-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E80AA5B17AB84BC0036E6FC /* pro-30.png */; };
 		5E80AA5E17AB84E80036E6FC /* pro-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E80AA5D17AB84E80036E6FC /* pro-40.png */; };
 		5E80AA6017AB85290036E6FC /* star-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E80AA5F17AB85290036E6FC /* star-30.png */; };
@@ -86,6 +87,8 @@
 		1AB14B9A1ABC814200E1E575 /* lifebalancer 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "lifebalancer 3.xcdatamodel"; sourceTree = "<group>"; };
 		1AC508101A5C44DC00BB377A /* SelectedTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedTabBarController.h; sourceTree = "<group>"; };
 		1AC508111A5C44DC00BB377A /* SelectedTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedTabBarController.m; sourceTree = "<group>"; };
+		1AC9EA9F1AC96D13002CF0E8 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		1AC9EAA01AC96D13002CF0E8 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		5E80AA5B17AB84BC0036E6FC /* pro-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pro-30.png"; sourceTree = "<group>"; };
 		5E80AA5D17AB84E80036E6FC /* pro-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pro-40.png"; sourceTree = "<group>"; };
 		5E80AA5F17AB85290036E6FC /* star-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-30.png"; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 			isa = PBXGroup;
 			children = (
 				ECF3E9B91719AE36007A23F3 /* Config.h */,
+				1AC9EA9F1AC96D13002CF0E8 /* Common.h */,
+				1AC9EAA01AC96D13002CF0E8 /* Common.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC9EAA11AC96D13002CF0E8 /* Common.m in Sources */,
 				A966D66C16F994A600ABE6C3 /* main.m in Sources */,
 				A966D67016F994A600ABE6C3 /* AppDelegate.m in Sources */,
 				A95C3AFE16FAD39600206D0C /* MissionViewController.m in Sources */,
@@ -692,16 +698,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eugene Zozulia (67CPGBVQ2B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eugene Zozulia (67CPGBVQ2B)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7fb98e5b-3533-4ad2-a762-38bfd3d1403a";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7fb98e5b-3533-4ad2-a762-38bfd3d1403a";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -713,16 +719,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = LifeBalancer/LifeBalancer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: FRESH AIR EDUCATORS, INC. (75JA9J2CN3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FRESH AIR EDUCATORS, INC. (75JA9J2CN3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eugene Zozulia (67CPGBVQ2B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eugene Zozulia (67CPGBVQ2B)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifeBalancer/LifeBalancer-Prefix.pch";
 				INFOPLIST_FILE = "LifeBalancer/LifeBalancer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33699a47-c59a-4b90-b6b1-f7875fadc9f2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33699a47-c59a-4b90-b6b1-f7875fadc9f2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

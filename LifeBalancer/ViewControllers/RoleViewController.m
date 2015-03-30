@@ -27,7 +27,6 @@
 {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self) {
-		// Custom initialization
 	}
 	return self;
 }
@@ -48,7 +47,6 @@
 }
 
 -(void)textFieldDidBeginEditing:(customtextfield *)textField{
-	//[self.tableView reloadRowsAtIndexPaths:@[textField.indexPath] withRowAnimation:UITableViewRowAnimationNone];
 	[self setEditing:YES];
 	[self.tableView setEditing:NO];
 	
@@ -67,36 +65,25 @@
 		}
 	}
 }
+
 -(BOOL)textField:(customtextfield *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-//	int cIndex = (int)textField.indexPath.row;
-//	
-//	if(cIndex>=rolesarray.count && string.length>0) {
-//		NSLog(@"New Cell");
-//		[self setEditing:YES];
-//		[self.tableView setEditing:NO];
-//		
-//	} else {
-//		if(string.length >0) {
-//			[self setEditing:YES];
-//			[self.tableView setEditing:NO];
-//			
-//		}
-//	}
 	return YES;
 }
+
 -(void)textFieldDidEndEditing:(customtextfield *)textField{
 	NSLog(@"%@",textField.text);
 	NSLog(@"%d",(int)textField.tag);
 	[self save:textField];
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
 	[self setEditing:NO animated:YES];
 	return YES;
 }
+
 -(void)save:(customtextfield*)textfield{
 	if (textfield.text.length==0) {
-		//[[[UIAlertView alloc]initWithTitle:nil message:@"Role name shouldn't be empty" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 		return;
 	}
 	
@@ -116,7 +103,7 @@
 			role = [[[DataAdapter alloc] init] getemptyrole];
 		}
 		role.name = textfield.text;
-//		[role didSave];
+		role.sortID = @(rolesarray.count + 4);
 		NSError *error = nil;
 		if (![role.managedObjectContext save:&error]) {
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -124,10 +111,6 @@
 		}
 		[self loadroles];
 		role = nil;
-	}
-	else
-	{
-		// [[[UIAlertView alloc]initWithTitle:nil message:@"Role already exists" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 	}
 }
 
@@ -226,13 +209,7 @@
 	[super setEditing:editing animated:animated];
 	
 	[self.navigationItem setHidesBackButton:editing animated:YES];
-	//	for (int i = 0; i < roleCount; i++) {
-	//		[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]].editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator; // withRowAnimation:UITableViewRowAnimationNone];
-	//	}
-	//
 	[self.tableView setEditing:editing animated:animated];
-	
-	//[self.tableView reloadData];
 	
 	if(!editing) {
 		[self updateRolesSortID];
@@ -242,36 +219,16 @@
 				[objRole didSave];
 			}
 		}
+		Role *saveRole = rolesarray.firstObject;
+		NSError *error;
+		[saveRole.managedObjectContext save:&error];
+		if(error) {
+			NSLog(@"Error %@", error);
+		}
+		
 		[self.tableView reloadData];
 		role = nil;
 	}
-	
-	
-	//	[self.tableView setEditing:editing animated:animated];
-	
-	//	[self.tableView beginUpdates];
-	//re-order feature implement.
-	//	NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-	//	[rolesarray sortUsingDescriptors:[NSArray arrayWithObject:descriptor]];
-	//	[self.tableView reloadData];
-	
-	//	for (int rolecount=0; rolecount < rolesarray.count; rolecount++) {
-	//		//Role *role_ = rolesarray[rolecount];
-	//		if (editing) {
-	//			NSArray *rolesInsertIndexPath = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:[rolesarray count]-1 inSection:0]];
-	//
-	//			if (editing) {
-	//				//[self.tableView insertRowsAtIndexPaths:rolesInsertIndexPath withRowAnimation:UITableViewRowAnimationTop];
-	//
-	//			} else {
-	//				//[self.tableView deleteRowsAtIndexPaths:rolesInsertIndexPath withRowAnimation:UITableViewRowAnimationTop];
-	//
-	//			}
-	//		}
-	//		else [self.tableView endUpdates];
-	//	}
-	//	[self.tableView endUpdates];
-	//[self.tableView reloadData];
 }
 
 - (void)updateRolesSortID {
@@ -294,9 +251,6 @@
 	NSInteger rows = 0;
 	rows = [rolesarray count];
 	NSLog(@"count : %d",(int)rows);
-	//    if (self.editing && rows<12) {
-	//		rows++;
-	//    }
 	return rows+1;
 }
 -(void)deleteLastText{
@@ -323,7 +277,6 @@
 		textField.text = [[rolesarray objectAtIndex:indexPath.row]name];
 		textField.indexPath = indexPath;
 		textField.delegate = self;
-		//rolecell.textLabel.text = [[rolesarray objectAtIndex:indexPath.row]name];
 	} else {
 		
 		for(UIView *subview in rolecell.contentView.subviews)
@@ -377,13 +330,8 @@
 	UITableViewCellEditingStyle style = UITableViewCellEditingStyleNone;
 	
 	if (indexPath.row < [rolesarray count]) {
-		// Role *role_ = [rolesarray objectAtIndex:indexPath.row];
-		
-		// if (role.custom.boolValue) {
 		style = UITableViewCellEditingStyleDelete;
-		// }
 	} else if(indexPath.row == [rolesarray count]){
-		//style = UITableViewCellEditingStyleInsert;
 		style = UITableViewCellEditingStyleNone;
 	}
 	
@@ -432,28 +380,12 @@
 		}
 	}
 }
+
 - (void)selectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//RoleDetailViewController *nextViewController = nil;
-	
-	// nextViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RoleDetailViewController"];
-	
-	//Role *role = nil;
-	
-	if (indexPath.row < [rolesarray count]) {
-		// role = [rolesarray objectAtIndex:indexPath.row];
-		//nextViewController.role = role;
-		//[self.tableView cellForRowAtIndexPath:indexPath].contentView;
-	}
-	
 	[self refreshData];
 	[self.tableView reloadData];
-	
-	//nextViewController.rolesarray = rolesarray;
-	// If we got a new view controller, push it .
-	//    if (nextViewController) {
-	//        [self.navigationController pushViewController:nextViewController animated:YES];
-	//    }
 }
+
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
 	if((sourceIndexPath.row != rolesarray.count) && (destinationIndexPath.row != rolesarray.count)) {
 		Role *roleMove = [rolesarray objectAtIndex:sourceIndexPath.row];
@@ -461,6 +393,7 @@
 		[rolesarray insertObject:roleMove atIndex:destinationIndexPath.row];
 	}
 }
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSUInteger rolesCount = [rolesarray count];
 	if (indexPath.row < rolesCount)
@@ -473,4 +406,5 @@
 	[self setTableView:nil];
 	[super viewDidUnload];
 }
+
 @end
