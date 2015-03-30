@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.com.zzi.testdev</string>
+		<string>iCloud.com.freshaireducators.LifeBalancer</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
@@ -13,13 +13,13 @@
 	</array>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>iCloud.com.zzi.testdev</string>
+		<string>iCloud.com.freshaireducators.LifeBalancer</string>
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
 	<string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)iCloud.com.zzi.testdev</string>
+		<string>$(AppIdentifierPrefix)iCloud.com.freshaireducators.LifeBalancer</string>
 	</array>
 </dict>
 </plist>
