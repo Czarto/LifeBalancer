@@ -116,7 +116,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	[self.txtgoalname becomeFirstResponder];
+	if(!self.txtgoalname.text.length)
+		[self.txtgoalname becomeFirstResponder];
 }
 
 
