@@ -68,7 +68,7 @@
     [fetchRequest setEntity:entity];
     
     NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (!(fetchedObjects == nil || fetchedObjects.count == 0)) {
+    if (fetchedObjects.count > 0) {
         return;
     }
 
@@ -76,7 +76,8 @@
 	CoreDataImporter *importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
 	
 	
-	NSDictionary *attributeDict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:@"To find happiness, fulfillment and value in living I will strive to make a positive difference in the lives of others; spend more quality time with friends and family; strive for excellence and inspire others; and apologize sincerely when necessary."] forKeys:[NSArray arrayWithObject:@"statement"]];
+	NSMutableDictionary *attributeDict = [[NSMutableDictionary alloc] initWithObjects:[NSArray arrayWithObject:@"To find happiness, fulfillment and value in living I will strive to make a positive difference in the lives of others; spend more quality time with friends and family; strive for excellence and inspire others; and apologize sincerely when necessary."] forKeys:[NSArray arrayWithObject:@"statement"]];
+	[attributeDict setObject:[NSDate date] forKeyedSubscript:@"createdDate"];
 	// STEP 3a: Insert a unique 'Item' from XML with a single attribute
 	NSManagedObject *missionItem = [importer insertBasicObjectInTargetEntity:@"Mission"
 													   targetEntityAttribute:@"statement"
@@ -87,6 +88,7 @@
 	NSDictionary *role1 = [NSDictionary dictionaryWithObjectsAndKeys:
 						   @"Physical",@"name",
 						   [NSNumber numberWithBool:NO],@"custom",
+						   [NSDate date], @"createdDate",
 						   nil];
 
 	
@@ -96,6 +98,7 @@
 	NSDictionary *role2 = [NSDictionary dictionaryWithObjectsAndKeys:
 						   @"Mental",@"name",
 						   [NSNumber numberWithBool:NO],@"custom",
+						   [NSDate date], @"createdDate",
 						   nil];
 
 	NSManagedObject *roleItem2 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role2 contect:managedObjectContext];
@@ -103,6 +106,7 @@
 	NSDictionary *role3 = [NSDictionary dictionaryWithObjectsAndKeys:
 						   @"Spiritual",@"name",
 						   [NSNumber numberWithBool:NO],@"custom",
+						   [NSDate date], @"createdDate",
 						   nil];
 
 	
@@ -111,6 +115,7 @@
 	NSDictionary *role4 = [NSDictionary dictionaryWithObjectsAndKeys:
 						   @"Social",@"name",
 						   [NSNumber numberWithBool:NO],@"custom",
+						   [NSDate date], @"createdDate",
 						   nil];
 
 	
@@ -118,28 +123,33 @@
 
 	NSMutableDictionary *role5 = [NSMutableDictionary dictionaryWithObject:@"Individual" forKey:@"name"];
 	[role5 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+	[role5 setObject:[NSDate date] forKey:@"createdDate"];
 	
 	
 	NSManagedObject *roleItem5 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role5 contect:managedObjectContext];
 
 	NSMutableDictionary *role6 = [NSMutableDictionary dictionaryWithObject:@"Family" forKey:@"name"];
 	[role6 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+	[role6 setObject:[NSDate date] forKey:@"createdDate"];
 	
 	NSManagedObject *roleItem6 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role6 contect:managedObjectContext];
 
 	NSMutableDictionary *role7 = [NSMutableDictionary dictionaryWithObject:@"Friend" forKey:@"name"];
 	[role7 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+	[role7 setObject:[NSDate date] forKey:@"createdDate"];
 	
 	NSManagedObject *roleItem7 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role7 contect:managedObjectContext];
 
 	NSMutableDictionary *role8 = [NSMutableDictionary dictionaryWithObject:@"Employee" forKey:@"name"];
 	[role8 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+	[role8 setObject:[NSDate date] forKey:@"createdDate"];
 
 	
 	NSManagedObject *roleItem8 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role8 contect:managedObjectContext];
 
 	NSMutableDictionary *role9 = [NSMutableDictionary dictionaryWithObject:@"Homeowner" forKey:@"name"];
 	[role9 setObject:[NSNumber numberWithBool:YES] forKey:@"custom"];
+	[role9 setObject:[NSDate date] forKey:@"createdDate"];
 
 	NSManagedObject *roleItem9 = [importer insertFieldObjectInTarget:@"Role" attributeDict:role9 contect:managedObjectContext];
 
@@ -170,7 +180,25 @@
                                               inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError *error;
-    return [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	NSArray *missions = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	if(error) {
+		NSLog(@"Error %@", error);
+	}
+	
+	BOOL chages = NO;
+	for(Mission *mission in missions)
+	{
+		if(mission.createdDate == nil) {
+			mission.createdDate = [NSDate date];
+			chages = YES;
+		}
+	}
+	[managedObjectContext save:&error];
+	if(error) {
+		NSLog(@"Error %@", error);
+	}
+	
+	return missions;
 }
 
 #pragma mark - Roles
@@ -178,6 +206,7 @@
 -(Role *)getemptyrole
 {
     Role *role = [NSEntityDescription insertNewObjectForEntityForName:@"Role" inManagedObjectContext:managedObjectContext];
+	role.createdDate = [NSDate date];
     role.custom = [NSNumber numberWithBool:YES];
     return role;
 }
@@ -194,6 +223,7 @@
 	NSError *error;
 	NSArray *roles = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 	[self checkRolesSorting:roles];
+	[self checkCreationDate:roles];
 	if (error)
 		NSLog(@"Error %@", error);
     return roles;
@@ -211,6 +241,7 @@
 	NSError *error;
 	NSArray *roles = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 	[self checkRolesSorting:roles];
+	[self checkCreationDate:roles];
 	if (error)
 		NSLog(@"Error %@", error);
 	return roles;
@@ -222,6 +253,23 @@
 		Role *role = roles[i];
 		if(role.sortID == nil) {
 			role.sortID = @(i);
+			changes = YES;
+		}
+	}
+	if(changes) {
+		NSError *error;
+		[managedObjectContext save:&error];
+		if(error)
+			NSLog(@"Error %@", error);
+	}
+}
+
+-(void)checkCreationDate:(NSArray*)roles {
+	BOOL changes = NO;
+	for(int i = 0; i < roles.count; i++) {
+		Role *role = roles[i];
+		if(role.createdDate == nil) {
+			role.createdDate = [NSDate date];
 			changes = YES;
 		}
 	}

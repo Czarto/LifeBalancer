@@ -13,5 +13,6 @@
 @interface Mission : NSManagedObject
 
 @property (nonatomic, retain) NSString * statement;
+@property (nonatomic, retain) NSDate *createdDate;
 
 @end

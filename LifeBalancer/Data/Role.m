@@ -17,5 +17,6 @@
 @dynamic sortID;
 @dynamic goals;
 @dynamic tasks;
+@dynamic createdDate;
 
 @end

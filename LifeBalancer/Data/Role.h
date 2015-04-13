@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSNumber * sortID;
 @property (nonatomic, retain) NSSet *goals;
 @property (nonatomic, retain) NSSet *tasks;
+@property (nonatomic, retain) NSDate *createdDate;
 
 @end
 

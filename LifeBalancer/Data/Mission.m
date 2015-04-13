@@ -12,5 +12,6 @@
 @implementation Mission
 
 @dynamic statement;
+@dynamic createdDate;
 
 @end
